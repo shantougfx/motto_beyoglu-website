@@ -1,0 +1,166 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { ContactButtons } from "@/components/contact-buttons";
+import { ProductCard } from "@/components/product-card";
+import { FloatingContact } from "@/components/floating-contact";
+import { getProductById, products } from "@/lib/products";
+
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const product = getProductById(id);
+
+  if (!product) {
+    return {
+      title: "Ürün Bulunamadı | Motto Beyoğlu",
+    };
+  }
+
+  return {
+    title: `${product.name} | Motto Beyoğlu`,
+    description: product.description,
+  };
+}
+
+export function generateStaticParams() {
+  return products.map((product) => ({
+    id: product.id,
+  }));
+}
+
+export default async function ProductDetailPage({ params }: PageProps) {
+  const { id } = await params;
+  const product = getProductById(id);
+
+  if (!product) {
+    notFound();
+  }
+
+  const formattedPrice = new Intl.NumberFormat("tr-TR", {
+    style: "currency",
+    currency: "TRY",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(product.price);
+
+  // Get related products (same category, excluding current)
+  const relatedProducts = products
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, 3);
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+
+      <main className="flex-1">
+        {/* Breadcrumb */}
+        <div className="border-b border-border">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+            <Link
+              href="/urunler"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Tüm Ürünler
+            </Link>
+          </div>
+        </div>
+
+        {/* Product Detail */}
+        <section className="py-12 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+              {/* Product Image */}
+              <div className="aspect-[3/4] relative rounded-lg overflow-hidden bg-muted">
+                <Image
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+
+              {/* Product Info */}
+              <div className="flex flex-col">
+                <div>
+                  <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
+                    {product.category}
+                  </p>
+                  <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground mb-4">
+                    {product.name}
+                  </h1>
+                  <p className="text-3xl font-semibold text-foreground mb-6">
+                    {formattedPrice}
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    {product.description}
+                  </p>
+                </div>
+
+                {/* Contact Info */}
+                <div className="bg-muted rounded-lg p-6 mb-8">
+                  <p className="text-foreground font-medium mb-2">
+                    Bu ürünü satın almak ister misiniz?
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    Sipariş ve detaylı bilgi için bizimle WhatsApp veya Instagram
+                    üzerinden iletişime geçebilirsiniz.
+                  </p>
+                  <ContactButtons
+                    productName={product.name}
+                    variant="large"
+                  />
+                </div>
+
+                {/* Additional Info */}
+                <div className="border-t border-border pt-6 mt-auto">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p className="text-muted-foreground">Stok Durumu</p>
+                      <p className="font-medium text-foreground">Sınırlı Stok</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">Teslimat</p>
+                      <p className="font-medium text-foreground">Mağazadan Teslim</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Products */}
+        {relatedProducts.length > 0 && (
+          <section className="py-12 sm:py-16 bg-card border-t border-border">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-foreground mb-8">
+                Benzer Ürünler
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedProducts.map((relatedProduct) => (
+                  <ProductCard key={relatedProduct.id} product={relatedProduct} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </main>
+
+      <Footer />
+      <FloatingContact />
+    </div>
+  );
+}
