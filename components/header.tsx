@@ -19,6 +19,9 @@ export function Header() {
     const [showSubcategoryView, setShowSubcategoryView] = useState(false);
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState<any[]>([]);
 
     // ADL style header auto-hide on scroll
     useEffect(() => {
@@ -26,10 +29,8 @@ export function Header() {
             const currentScrollY = window.scrollY;
 
             if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Scrolling down & past 100px
                 setIsHeaderVisible(false);
             } else {
-                // Scrolling up
                 setIsHeaderVisible(true);
             }
 
@@ -40,6 +41,46 @@ export function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
+    // Search functionality
+    useEffect(() => {
+        if (searchQuery.length > 0) {
+            const mockProducts = [
+                { id: 1, name: 'Ananas Desenli Kimono Ceket', price: 1500, image: '/products/ananas-kimono-1.jpg' },
+                { id: 2, name: 'Beyaz Gömlek', price: 850, image: '/placeholder.jpg' },
+                { id: 3, name: 'Siyah Pantolon', price: 950, image: '/placeholder.jpg' },
+                { id: 4, name: 'Çiçekli Elbise', price: 1200, image: '/placeholder.jpg' },
+                { id: 5, name: 'Denim Ceket', price: 1100, image: '/placeholder.jpg' },
+                { id: 6, name: 'Kırmızı Bluz', price: 750, image: '/placeholder.jpg' },
+                { id: 7, name: 'Mavi Jean', price: 900, image: '/placeholder.jpg' }
+            ];
+
+            const filtered = mockProducts.filter(product =>
+                product.name.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            setSearchResults(filtered.slice(0, 5));
+        } else {
+            setSearchResults([]);
+        }
+    }, [searchQuery]);
+
+    // Close search when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as HTMLElement;
+            if (!target.closest('.search-container')) {
+                setSearchOpen(false);
+            }
+        };
+
+        if (searchOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [searchOpen]);
+
     return (
         <>
             <ScrollingText />
@@ -48,7 +89,6 @@ export function Header() {
             <div className="hidden md:block bg-gray-50 py-2 border-b border-gray-200">
                 <div className="mx-auto max-w-7xl px-4 lg:px-6">
                     <div className="flex items-center justify-between text-xs font-normal text-black">
-                        {/* Desktop Contact */}
                         <div className="flex items-center gap-3 text-black">
                             <a href="tel:+905348246584" className="flex items-center gap-1 hover:text-black transition-colors">
                                 <Phone className="h-3 w-3" />
@@ -108,7 +148,7 @@ export function Header() {
                 </div>
             </div>
 
-            {/* Main Header - ADL Style with Auto Hide */}
+            {/* Main Header */}
             <header
                 className={`bg-white fixed top-0 left-0 right-0 z-50 border-b border-gray-200 transition-transform duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
                     }`}
@@ -116,9 +156,8 @@ export function Header() {
             >
                 <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
                     <div className="flex h-14 sm:h-16 lg:h-18 items-center justify-between">
-                        {/* Left Side - Categories + Logo */}
+                        {/* Left Side */}
                         <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 min-w-0 flex-1">
-                            {/* Categories Button */}
                             <button
                                 onClick={() => setCategoriesSidebarOpen(true)}
                                 className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200 flex-shrink-0"
@@ -128,13 +167,11 @@ export function Header() {
                                 </svg>
                             </button>
 
-                            {/* Logo */}
                             <Link href="/" className="flex items-center min-w-0 flex-shrink-0">
                                 <span className="text-lg sm:text-xl lg:text-2xl font-bold text-black">Motto</span>
                                 <span className="text-lg sm:text-xl lg:text-2xl font-light text-gray-600 ml-1">Beyoğlu</span>
                             </Link>
 
-                            {/* Desktop Navigation */}
                             <div className="hidden lg:flex items-center gap-8 ml-8">
                                 {navigation.map((item) => (
                                     <Link
@@ -148,21 +185,68 @@ export function Header() {
                             </div>
                         </div>
 
-                        {/* Right Side - Icons */}
+                        {/* Right Side */}
                         <div className="flex items-center gap-1 sm:gap-2">
-                            {/* Mobile Search Button */}
-                            <button
-                                onClick={() => {
-                                    // Simple search functionality - you can enhance this
-                                    const searchTerm = prompt('Ürün ara:');
-                                    if (searchTerm) {
-                                        window.location.href = `/urunler?search=${encodeURIComponent(searchTerm)}`;
-                                    }
-                                }}
-                                className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200"
-                            >
-                                <Search className="h-5 w-5" />
-                            </button>
+                            {/* Mobile Search */}
+                            <div className="lg:hidden relative search-container">
+                                <button
+                                    onClick={() => setSearchOpen(!searchOpen)}
+                                    className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200"
+                                >
+                                    <Search className="h-5 w-5" />
+                                </button>
+
+                                {searchOpen && (
+                                    <div className="absolute top-full right-0 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                                        <div className="p-3">
+                                            <Input
+                                                type="text"
+                                                placeholder="Ürün ara..."
+                                                value={searchQuery}
+                                                onChange={(e) => setSearchQuery(e.target.value)}
+                                                className="w-full"
+                                                autoFocus
+                                            />
+                                        </div>
+
+                                        {searchResults.length > 0 && (
+                                            <div className="border-t border-gray-100 max-h-64 overflow-y-auto">
+                                                {searchResults.map((product) => (
+                                                    <Link
+                                                        key={product.id}
+                                                        href={`/urunler/${product.id}`}
+                                                        onClick={() => {
+                                                            setSearchOpen(false);
+                                                            setSearchQuery('');
+                                                        }}
+                                                        className="flex items-center gap-3 p-3 hover:bg-gray-50 transition-colors"
+                                                    >
+                                                        <img
+                                                            src={product.image}
+                                                            alt={product.name}
+                                                            className="w-10 h-10 object-cover rounded"
+                                                        />
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="text-sm font-medium text-gray-900 truncate">
+                                                                {product.name}
+                                                            </p>
+                                                            <p className="text-sm text-gray-500">
+                                                                {product.price} TL
+                                                            </p>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {searchQuery && searchResults.length === 0 && (
+                                            <div className="p-3 text-center text-gray-500 text-sm border-t border-gray-100">
+                                                Ürün bulunamadı
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
 
                             {/* Mobile Help Button */}
                             <Link href="/iletisim" className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200">
@@ -172,34 +256,61 @@ export function Header() {
                             </Link>
 
                             {/* Desktop Search */}
-                            <div className="hidden lg:block flex-shrink-0 w-80">
+                            <div className="hidden lg:block flex-shrink-0 w-80 search-container relative">
                                 <div className="relative">
                                     <Input
                                         type="text"
                                         placeholder="Ürün ara..."
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        onFocus={() => setSearchOpen(true)}
                                         className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black text-sm bg-white"
-                                        onKeyPress={(e) => {
-                                            if (e.key === 'Enter') {
-                                                const target = e.target as HTMLInputElement;
-                                                if (target.value.trim()) {
-                                                    window.location.href = `/urunler?search=${encodeURIComponent(target.value)}`;
-                                                }
-                                            }
-                                        }}
                                     />
-                                    <Button
-                                        size="sm"
-                                        className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 rounded-md bg-black hover:bg-gray-800 text-white p-0"
-                                        onClick={() => {
-                                            const input = document.querySelector('input[placeholder="Ürün ara..."]') as HTMLInputElement;
-                                            if (input && input.value.trim()) {
-                                                window.location.href = `/urunler?search=${encodeURIComponent(input.value)}`;
-                                            }
-                                        }}
-                                    >
+                                    <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 rounded-md bg-black hover:bg-gray-800 text-white p-0">
                                         <Search className="h-4 w-4" />
                                     </Button>
                                 </div>
+
+                                {/* Desktop Search Results */}
+                                {searchOpen && (searchResults.length > 0 || searchQuery) && (
+                                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                                        {searchResults.length > 0 && (
+                                            <div className="max-h-64 overflow-y-auto">
+                                                {searchResults.map((product) => (
+                                                    <Link
+                                                        key={product.id}
+                                                        href={`/urunler/${product.id}`}
+                                                        onClick={() => {
+                                                            setSearchOpen(false);
+                                                            setSearchQuery('');
+                                                        }}
+                                                        className="flex items-center gap-3 p-3 hover:bg-gray-50 transition-colors"
+                                                    >
+                                                        <img
+                                                            src={product.image}
+                                                            alt={product.name}
+                                                            className="w-10 h-10 object-cover rounded"
+                                                        />
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="text-sm font-medium text-gray-900 truncate">
+                                                                {product.name}
+                                                            </p>
+                                                            <p className="text-sm text-gray-500">
+                                                                {product.price} TL
+                                                            </p>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {searchQuery && searchResults.length === 0 && (
+                                            <div className="p-3 text-center text-gray-500 text-sm">
+                                                Ürün bulunamadı
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
 
                             {/* Desktop Help Button */}
@@ -214,10 +325,8 @@ export function Header() {
                     </div>
                 </div>
             </header>
-
             {/* Categories Sidebar */}
             <div className={`fixed inset-0 z-50 transition-all duration-300 ease-in-out ${categoriesSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-                {/* Backdrop */}
                 <div
                     className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out ${categoriesSidebarOpen ? 'bg-opacity-30' : 'bg-opacity-0'}`}
                     onClick={() => {
@@ -227,7 +336,6 @@ export function Header() {
                     }}
                 />
 
-                {/* Sidebar */}
                 <div className={`fixed top-0 left-0 h-full w-80 sm:w-96 bg-white shadow-xl transform transition-all duration-300 ease-in-out ${categoriesSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                     <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
                         <h3 className="text-lg font-semibold text-black">Kategoriler</h3>
@@ -244,7 +352,6 @@ export function Header() {
                     </div>
 
                     <div className="relative p-4 space-y-2 overflow-y-auto h-full pb-20">
-                        {/* Ana Kategoriler */}
                         <div className={`transition-all duration-300 ease-in-out ${!showSubcategoryView ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 absolute inset-0 p-4'}`}>
                             <div
                                 onClick={() => setCategoriesSidebarOpen(false)}
@@ -305,7 +412,6 @@ export function Header() {
                                 </svg>
                             </button>
 
-                            {/* Navigation Links for Mobile */}
                             <div className="mt-6 pt-4 border-t border-gray-100">
                                 <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3 px-4">Sayfalar</h4>
                                 <div className="space-y-1">
@@ -341,9 +447,7 @@ export function Header() {
                             </div>
                         </div>
 
-                        {/* Alt Kategoriler */}
                         <div className={`transition-all duration-300 ease-in-out ${showSubcategoryView ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 absolute inset-0 p-4'}`}>
-                            {/* Geri Butonu */}
                             <button
                                 onClick={() => setShowSubcategoryView(false)}
                                 className="flex items-center gap-3 py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer mb-4"
@@ -354,7 +458,6 @@ export function Header() {
                                 <span className="font-medium">Geri</span>
                             </button>
 
-                            {/* Alt Kategoriler */}
                             {activeSubcategory === 'ust-giyim' && (
                                 <div className="space-y-2 animate-fadeIn">
                                     <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Gömlek</div>
