@@ -165,7 +165,7 @@ export default function NewHeader() {
                                         style={{
                                             animationDelay: '0.1s',
                                             animationFillMode: 'both',
-                                            transition: 'background-color 0.2s ease, transform 0.2s ease'
+                                            transition: 'background-color 0.3s ease, transform 0.3s ease'
                                         }}
                                     >
                                         ✨ YENİ SEZON
@@ -179,11 +179,11 @@ export default function NewHeader() {
                                             style={{
                                                 animationDelay: `${0.2 + (index * 0.1)}s`,
                                                 animationFillMode: 'both',
-                                                transition: 'background-color 0.2s ease, transform 0.2s ease'
+                                                transition: 'background-color 0.3s ease, transform 0.3s ease'
                                             }}
                                         >
                                             <span className="category-black-stable">{categoryName}</span>
-                                            <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="#000000" viewBox="0 0 24 24">
+                                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="#000000" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
                                         </div>
