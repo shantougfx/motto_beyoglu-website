@@ -328,7 +328,29 @@ header {
   animation: slideOutRight 0.3s ease-out;
 }
 
-/* YENİ SEZON always pink */
-.yeni-sezon-pink {
+/* Force category colors - never change */
+.category-pink {
   color: #EC407A !important;
+  font-weight: 700 !important;
+}
+
+.category-pink:hover,
+.category-pink:focus,
+.category-pink:active,
+.category-pink:visited {
+  color: #EC407A !important;
+  font-weight: 700 !important;
+}
+
+.category-black {
+  color: #000000 !important;
+  font-weight: 400 !important;
+}
+
+.category-black:hover,
+.category-black:focus,
+.category-black:active,
+.category-black:visited {
+  color: #000000 !important;
+  font-weight: 400 !important;
 }
