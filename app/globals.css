@@ -148,6 +148,27 @@
   body {
     overflow-x: hidden;
   }
+
+  /* Ensure header stays fixed on mobile */
+  header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+  }
+
+  /* Mobile viewport fix */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 0;
+    }
+
+    /* Prevent zoom on input focus */
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
 }
 
 /* Scrolling text animation */
@@ -207,6 +228,71 @@
 
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
+}
+
+/* Slide animations for sidebar */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-slideOutLeft {
+  animation: slideOutLeft 0.3s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-slideOutRight {
+  animation: slideOutRight 0.3s ease-out;
 }
 
 /* YENİ SEZON always pink */

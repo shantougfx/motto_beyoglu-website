@@ -22,7 +22,7 @@ export function Header() {
         <>
             <ScrollingText />
             {/* Contact Bar - Compact Mobile Design */}
-            <div className="bg-gray-50 py-1 sm:py-2 border-b border-gray-200">
+            <div className="bg-gray-50 py-1 sm:py-2 border-b border-gray-200 sticky top-0 z-40">
                 <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
                     <div className="flex items-center justify-between text-xs font-normal text-black">
                         {/* Mobile Contact - Minimal */}
@@ -71,7 +71,7 @@ export function Header() {
                                             window.open('maps://?q=Motto+Beyoğlu+Alemdar+Sokak+Göksel+Sk+4A/A+Ümraniye+İstanbul', '_blank');
                                         }, 500);
                                     } else {
-                                        window.open('https://www.google.com/maps?hl=tr&gl=tr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x14cac8f0ad361bfb:0xe4c7d6331f5cd545', '_blank');
+                                        window.open('https://www.google.com/maps?hl=tr&gl=tr&um=1&ie=UTF-4&fb=1&sa=X&ftid=0x14cac8f0ad361bfb:0xe4c7d6331f5cd545', '_blank');
                                     }
                                 }}
                                 className="hidden md:flex items-center gap-1 hover:text-black transition-colors"
@@ -98,7 +98,7 @@ export function Header() {
             </div>
 
             {/* Main Header - ADL Style Mobile */}
-            <header className="bg-white sticky top-0 z-50 border-b border-gray-200" style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}>
+            <header className="bg-white sticky top-0 left-0 right-0 z-50 border-b border-gray-200" style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}>
                 <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
                     <div className="flex h-14 sm:h-16 lg:h-18 items-center justify-between">
                         {/* Left Side - Categories + Logo */}
@@ -179,24 +179,26 @@ export function Header() {
             </header>
 
             {/* Categories Sidebar */}
-            <div className={`fixed inset-0 z-50 transition-opacity duration-300 ${categoriesSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`fixed inset-0 z-50 transition-all duration-300 ease-in-out ${categoriesSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                 {/* Backdrop */}
                 <div
-                    className="fixed inset-0 bg-black/30 transition-opacity duration-300"
+                    className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out ${categoriesSidebarOpen ? 'bg-opacity-30' : 'bg-opacity-0'}`}
                     onClick={() => {
                         setCategoriesSidebarOpen(false);
                         setShowSubcategoryView(false);
+                        setActiveSubcategory(null);
                     }}
                 />
 
                 {/* Sidebar */}
-                <div className={`fixed top-0 left-0 h-full w-80 sm:w-96 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${categoriesSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                <div className={`fixed top-0 left-0 h-full w-80 sm:w-96 bg-white shadow-xl transform transition-all duration-300 ease-in-out ${categoriesSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                     <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
                         <h3 className="text-lg font-semibold text-black">Kategoriler</h3>
                         <button
                             onClick={() => {
                                 setCategoriesSidebarOpen(false);
                                 setShowSubcategoryView(false);
+                                setActiveSubcategory(null);
                             }}
                             className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
                         >
@@ -204,161 +206,161 @@ export function Header() {
                         </button>
                     </div>
 
-                    <div className="relative p-0 overflow-y-auto h-full pb-20">
-                        {!showSubcategoryView ? (
-                            <div className={`transition-all duration-300 ease-in-out ${!showSubcategoryView ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
-                                <div
-                                    onClick={() => setCategoriesSidebarOpen(false)}
-                                    className="block py-4 px-6 text-sm hover:bg-gray-50 transition-colors cursor-pointer font-bold yeni-sezon-pink border-b border-gray-100"
-                                >
-                                    YENİ SEZON
-                                </div>
+                    <div className="relative p-4 space-y-2 overflow-y-auto h-full pb-20">
+                        {/* Ana Kategoriler */}
+                        <div className={`transition-all duration-300 ease-in-out ${!showSubcategoryView ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 absolute inset-0 p-4'}`}>
+                            <div
+                                onClick={() => setCategoriesSidebarOpen(false)}
+                                className="block py-3 px-4 text-sm hover:bg-gray-50 rounded-lg transition-colors cursor-pointer font-bold yeni-sezon-pink"
+                            >
+                                YENİ SEZON
+                            </div>
 
-                                <button
-                                    onClick={() => {
-                                        setActiveSubcategory('ust-giyim');
-                                        setShowSubcategoryView(true);
-                                    }}
-                                    className="flex items-center justify-between w-full py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100"
-                                >
-                                    <span className="font-medium">ÜST GİYİM</span>
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
+                            <button
+                                onClick={() => {
+                                    setActiveSubcategory('ust-giyim');
+                                    setShowSubcategoryView(true);
+                                }}
+                                className="flex items-center justify-between w-full py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
+                            >
+                                <span className="font-medium">ÜST GİYİM</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
 
-                                <button
-                                    onClick={() => {
-                                        setActiveSubcategory('alt-giyim');
-                                        setShowSubcategoryView(true);
-                                    }}
-                                    className="flex items-center justify-between w-full py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100"
-                                >
-                                    <span className="font-medium">ALT GİYİM</span>
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
+                            <button
+                                onClick={() => {
+                                    setActiveSubcategory('alt-giyim');
+                                    setShowSubcategoryView(true);
+                                }}
+                                className="flex items-center justify-between w-full py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
+                            >
+                                <span className="font-medium">ALT GİYİM</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
 
-                                <button
-                                    onClick={() => {
-                                        setActiveSubcategory('dis-giyim');
-                                        setShowSubcategoryView(true);
-                                    }}
-                                    className="flex items-center justify-between w-full py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100"
-                                >
-                                    <span className="font-medium">DIŞ GİYİM</span>
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
+                            <button
+                                onClick={() => {
+                                    setActiveSubcategory('dis-giyim');
+                                    setShowSubcategoryView(true);
+                                }}
+                                className="flex items-center justify-between w-full py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
+                            >
+                                <span className="font-medium">DIŞ GİYİM</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
 
-                                <button
-                                    onClick={() => {
-                                        setActiveSubcategory('elbise');
-                                        setShowSubcategoryView(true);
-                                    }}
-                                    className="flex items-center justify-between w-full py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100"
-                                >
-                                    <span className="font-medium">ELBİSE</span>
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
+                            <button
+                                onClick={() => {
+                                    setActiveSubcategory('elbise');
+                                    setShowSubcategoryView(true);
+                                }}
+                                className="flex items-center justify-between w-full py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
+                            >
+                                <span className="font-medium">ELBİSE</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
 
-                                {/* Navigation Links for Mobile */}
-                                <div className="mt-4 pt-4 border-t border-gray-200 bg-gray-50">
-                                    <h4 className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-3 px-6">Sayfalar</h4>
-                                    <div className="space-y-0">
-                                        <Link
-                                            href="/"
-                                            onClick={() => setCategoriesSidebarOpen(false)}
-                                            className="flex items-center px-6 py-3 text-sm font-medium text-black hover:bg-gray-100 transition-colors"
-                                        >
-                                            Anasayfa
-                                        </Link>
-                                        <Link
-                                            href="/urunler"
-                                            onClick={() => setCategoriesSidebarOpen(false)}
-                                            className="flex items-center px-6 py-3 text-sm font-medium text-black hover:bg-gray-100 transition-colors"
-                                        >
-                                            Ürünler
-                                        </Link>
-                                        <Link
-                                            href="/hakkimizda"
-                                            onClick={() => setCategoriesSidebarOpen(false)}
-                                            className="flex items-center px-6 py-3 text-sm font-medium text-black hover:bg-gray-100 transition-colors"
-                                        >
-                                            Hakkımızda
-                                        </Link>
-                                        <Link
-                                            href="/iletisim"
-                                            onClick={() => setCategoriesSidebarOpen(false)}
-                                            className="flex items-center px-6 py-3 text-sm font-medium text-black hover:bg-gray-100 transition-colors"
-                                        >
-                                            İletişim
-                                        </Link>
-                                    </div>
+                            {/* Navigation Links for Mobile */}
+                            <div className="mt-6 pt-4 border-t border-gray-100">
+                                <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3 px-4">Sayfalar</h4>
+                                <div className="space-y-1">
+                                    <Link
+                                        href="/"
+                                        onClick={() => setCategoriesSidebarOpen(false)}
+                                        className="flex items-center px-4 py-3 text-sm font-medium text-black hover:bg-gray-50 rounded-lg transition-colors"
+                                    >
+                                        Anasayfa
+                                    </Link>
+                                    <Link
+                                        href="/urunler"
+                                        onClick={() => setCategoriesSidebarOpen(false)}
+                                        className="flex items-center px-4 py-3 text-sm font-medium text-black hover:bg-gray-50 rounded-lg transition-colors"
+                                    >
+                                        Ürünler
+                                    </Link>
+                                    <Link
+                                        href="/hakkimizda"
+                                        onClick={() => setCategoriesSidebarOpen(false)}
+                                        className="flex items-center px-4 py-3 text-sm font-medium text-black hover:bg-gray-50 rounded-lg transition-colors"
+                                    >
+                                        Hakkımızda
+                                    </Link>
+                                    <Link
+                                        href="/iletisim"
+                                        onClick={() => setCategoriesSidebarOpen(false)}
+                                        className="flex items-center px-4 py-3 text-sm font-medium text-black hover:bg-gray-50 rounded-lg transition-colors"
+                                    >
+                                        İletişim
+                                    </Link>
                                 </div>
                             </div>
-                        ) : (
-                            <div className={`absolute inset-0 transition-all duration-300 ease-in-out ${showSubcategoryView ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
-                                {/* Geri Butonu */}
-                                <button
-                                    onClick={() => setShowSubcategoryView(false)}
-                                    className="flex items-center gap-3 py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-200 w-full"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                    <span className="font-medium">Geri</span>
-                                </button>
+                        </div>
 
-                                {/* Alt Kategoriler */}
-                                {activeSubcategory === 'ust-giyim' && (
-                                    <div className="space-y-0 animate-fadeIn">
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Gömlek</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Bluz</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">T-shirt</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Sweatshirt</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Takım</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Hırka</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Tulum</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Kazak</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Yelek</div>
-                                    </div>
-                                )}
+                        {/* Alt Kategoriler */}
+                        <div className={`transition-all duration-300 ease-in-out ${showSubcategoryView ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 absolute inset-0 p-4'}`}>
+                            {/* Geri Butonu */}
+                            <button
+                                onClick={() => setShowSubcategoryView(false)}
+                                className="flex items-center gap-3 py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer mb-4"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                                <span className="font-medium">Geri</span>
+                            </button>
 
-                                {activeSubcategory === 'alt-giyim' && (
-                                    <div className="space-y-0 animate-fadeIn">
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Etek</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Şort</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Pantolon</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Jean</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Eşofman Altı</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Tayt</div>
-                                    </div>
-                                )}
+                            {/* Alt Kategoriler */}
+                            {activeSubcategory === 'ust-giyim' && (
+                                <div className="space-y-2 animate-fadeIn">
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Gömlek</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Bluz</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">T-shirt</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Sweatshirt</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Takım</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Hırka</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Tulum</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Kazak</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Yelek</div>
+                                </div>
+                            )}
 
-                                {activeSubcategory === 'dis-giyim' && (
-                                    <div className="space-y-0 animate-fadeIn">
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Trençkot</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Ceket</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Mont</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Kaban</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Yelek</div>
-                                    </div>
-                                )}
+                            {activeSubcategory === 'alt-giyim' && (
+                                <div className="space-y-2 animate-fadeIn">
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Etek</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Şort</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Pantolon</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Jean</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Eşofman Altı</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Tayt</div>
+                                </div>
+                            )}
 
-                                {activeSubcategory === 'elbise' && (
-                                    <div className="space-y-0 animate-fadeIn">
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Günlük Elbise</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Abiye Elbise</div>
-                                        <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-4 px-6 text-sm text-black hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100">Yazlık Elbise</div>
-                                    </div>
-                                )}
-                            </div>
-                        )}
+                            {activeSubcategory === 'dis-giyim' && (
+                                <div className="space-y-2 animate-fadeIn">
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Trençkot</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Ceket</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Mont</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Kaban</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Yelek</div>
+                                </div>
+                            )}
+
+                            {activeSubcategory === 'elbise' && (
+                                <div className="space-y-2 animate-fadeIn">
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Günlük Elbise</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Abiye Elbise</div>
+                                    <div onClick={() => setCategoriesSidebarOpen(false)} className="block py-3 px-4 text-sm text-black hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">Yazlık Elbise</div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
