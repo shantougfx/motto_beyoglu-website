@@ -161,7 +161,7 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
                                     <button
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer hover:bg-pink-50 rounded-lg transition-transform duration-300 text-left transform hover:scale-105 opacity-0 animate-fadeIn category-pink"
+                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer hover:bg-pink-50 rounded-lg transition-transform duration-[299ms] text-left transform hover:scale-105 opacity-0 animate-fadeIn category-pink"
                                         style={{
                                             animationDelay: '0.1s',
                                             animationFillMode: 'both'
@@ -174,7 +174,7 @@ export default function NewHeader() {
                                         <button
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg transition-transform duration-300 flex items-center justify-between group transform hover:scale-105 opacity-0 animate-fadeIn category-black"
+                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg transition-transform duration-[299ms] flex items-center justify-between group transform hover:scale-105 opacity-0 animate-fadeIn category-black"
                                             style={{
                                                 animationDelay: `${0.2 + (index * 0.1)}s`,
                                                 animationFillMode: 'both'
