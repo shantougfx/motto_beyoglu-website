@@ -335,18 +335,14 @@ header {
   color: #EC407A !important;
 }
 
-.category-pink-stable:hover,
-.category-pink-stable:focus,
-.category-pink-stable:active {
-  color: #EC407A !important;
+.category-pink-stable:hover {
+  color: #D81B60 !important;
 }
 
-.category-gray-stable {
-  color: #6B7280 !important;
+.category-dark-stable {
+  color: #374151 !important;
 }
 
-.category-gray-stable:hover,
-.category-gray-stable:focus,
-.category-gray-stable:active {
+.category-dark-stable:hover {
   color: #000000 !important;
 }
