@@ -36,7 +36,11 @@ export default function NewHeader() {
     };
 
     const handleBackToCategories = () => {
-        setActiveSubcategory(null);
+        setCategoriesSidebarClosing(true);
+        setTimeout(() => {
+            setActiveSubcategory(null);
+            setCategoriesSidebarClosing(false);
+        }, 150); // Shorter animation for back action
     };
 
     const handleSubcategoryClick = () => {
@@ -107,7 +111,7 @@ export default function NewHeader() {
 
                             <div className="hidden lg:flex items-center gap-8 ml-8">
                                 {navigation.map((item) => (
-                                    <Link key={item.name} href={item.href} className="text-sm font-medium text-black hover:text-gray-600 transition-colors">
+                                    <Link key={item.name} href={item.href} className="text-sm font-medium text-black hover-underline transition-colors">
                                         {item.name}
                                     </Link>
                                 ))}
@@ -194,7 +198,7 @@ export default function NewHeader() {
                                         <button
                                             key={subcategory}
                                             onClick={handleSubcategoryClick}
-                                            className="w-full py-3 px-4 text-sm text-gray-600 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left"
+                                            className="w-full py-3 px-4 text-sm text-gray-600 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left hover-underline"
                                         >
                                             {subcategory}
                                         </button>

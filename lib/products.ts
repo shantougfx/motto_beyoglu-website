@@ -13,10 +13,10 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    name: "Ananas Desenli Kimono Ceket",
+    name: "ZARA Ananas Desenli Kimono Ceket",
     price: 1500,
     description:
-      "Ananas desenli kimono tarzı ceket. Geniş kollu, rahat kesim ve şık tasarımı ile günlük kullanım için ideal. Kaliteli kumaş ve detaylı işçilik.",
+      "ZARA marka ananas desenli kimono tarzı ceket. Geniş kollu, rahat kesim ve şık tasarımı ile günlük kullanım için ideal. Kaliteli kumaş ve detaylı işçilik.",
     image: "/IMG_3422.jpeg",
     category: "Üst Giyim",
     featured: true,
