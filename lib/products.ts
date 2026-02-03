@@ -65,10 +65,10 @@ export const products: Product[] = [
   },
   {
     id: "13",
-    name: "Blazer Ceket",
+    name: "ZARA İşleme Bomber Ceket",
     price: 1899,
     description:
-      "İtalyan kesim, yarı astarlı yazlık blazer. Hem şık hem rahat.",
+      "ZARA marka işlemeli bomber ceket. Modern kesim ve kaliteli detaylar.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop",
     category: "Dış Giyim",
