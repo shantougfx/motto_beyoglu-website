@@ -18,26 +18,26 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight text-balance">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-32">
+            <div className="text-center max-w-4xl mx-auto">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight text-balance leading-tight">
                 Seçili Ürünler,
                 <br />
                 <span className="text-muted-foreground">Özel Fiyatlar</span>
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
                 İhracat fazlası seçili ürünler – sınırlı stok.
                 Ümraniye'den, kaliteli parçalar.
               </p>
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/urunler">
-                  <Button size="lg" className="gap-2 px-8">
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
+                <Link href="/urunler" className="w-full sm:w-auto">
+                  <Button size="lg" className="gap-2 px-6 sm:px-8 w-full sm:w-auto h-12 text-base">
                     Ürünleri Keşfet
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/iletisim">
-                  <Button variant="outline" size="lg" className="px-8 bg-transparent">
+                <Link href="/iletisim" className="w-full sm:w-auto">
+                  <Button variant="outline" size="lg" className="px-6 sm:px-8 bg-transparent w-full sm:w-auto h-12 text-base">
                     İletişime Geç
                   </Button>
                 </Link>
@@ -52,14 +52,14 @@ export default function HomePage() {
         </section>
 
         {/* Featured Products */}
-        <section className="py-16 sm:py-24 bg-card">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-10">
               <div>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
+                <p className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                   Koleksiyon
                 </p>
-                <h2 className="text-3xl sm:text-4xl font-semibold text-foreground">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground">
                   Öne Çıkan Ürünler
                 </h2>
               </div>
@@ -72,7 +72,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {featuredProducts.slice(0, 6).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -81,27 +81,27 @@ export default function HomePage() {
         </section>
 
         {/* About Preview */}
-        <section className="py-16 sm:py-24">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
+                <p className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                   Hikayemiz
                 </p>
-                <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-4 sm:mb-6">
                   Ümraniye'de Hizmetinizdeyiz
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
                   Motto Beyoğlu olarak, ihracat fazlası kaliteli ürünleri sizlerle
                   buluşturuyoruz. Fiziksel mağazamızda, özenle seçilmiş parçaları
                   uygun fiyatlarla sunuyoruz.
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-8">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6 sm:mb-8">
                   Her ürün sınırlı stoklu ve özel. Beyoğlu'nun eşsiz atmosferinde,
                   kaliteli alışverişin tadını çıkarın.
                 </p>
                 <Link href="/hakkimizda">
-                  <Button variant="outline" className="gap-2 bg-transparent">
+                  <Button variant="outline" className="gap-2 bg-transparent h-10 sm:h-11 text-sm sm:text-base px-4 sm:px-6">
                     Daha Fazla Bilgi
                     <ArrowRight className="h-4 w-4" />
                   </Button>
@@ -123,12 +123,12 @@ export default function HomePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-24 bg-foreground text-background">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-foreground text-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-semibold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 sm:mb-4">
               Sorularınız mı var?
             </h2>
-            <p className="text-background/70 max-w-xl mx-auto mb-8">
+            <p className="text-sm sm:text-base text-background/70 max-w-xl mx-auto mb-6 sm:mb-8 px-4">
               WhatsApp veya Instagram üzerinden bize ulaşın.
               Size yardımcı olmaktan mutluluk duyarız.
             </p>
@@ -136,7 +136,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-background text-background hover:bg-background hover:text-foreground bg-transparent"
+                className="border-background text-background hover:bg-background hover:text-foreground bg-transparent h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base"
               >
                 İletişime Geç
               </Button>

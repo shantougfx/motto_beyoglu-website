@@ -22,13 +22,13 @@ export function Header() {
     return (
         <>
             <ScrollingText />
-            <div className="bg-gray-50 py-3 hidden md:block border-b border-gray-200">
+            <div className="bg-gray-50 py-2 sm:py-3 hidden md:block border-b border-gray-200">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between text-xs font-normal text-black leading-none">
-                        <div className="flex items-center gap-6 text-black">
-                            <a href="tel:+902163286128" className="flex items-center gap-2 hover:text-black transition-colors cursor-pointer text-black">
-                                <Phone className="h-4 w-4 text-black" />
-                                <span className="text-black">0216 328 61 28</span>
+                        <div className="flex items-center gap-4 sm:gap-6 text-black">
+                            <a href="tel:+902163286128" className="flex items-center gap-1 sm:gap-2 hover:text-black transition-colors cursor-pointer text-black">
+                                <Phone className="h-3 w-3 sm:h-4 sm:w-4 text-black" />
+                                <span className="text-black text-xs">0216 328 61 28</span>
                             </a>
                             <a
                                 href="mailto:info@mottobeyoglu.com"
@@ -41,13 +41,13 @@ export function Header() {
                                         window.open('https://mail.google.com/mail/?view=cm&fs=1&to=info@mottobeyoglu.com', '_blank');
                                     }
                                 }}
-                                className="flex items-center gap-2 hover:text-black transition-colors cursor-pointer text-black"
+                                className="flex items-center gap-1 sm:gap-2 hover:text-black transition-colors cursor-pointer text-black"
                             >
-                                <svg className="h-4 w-4 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                <svg className="h-3 w-3 sm:h-4 sm:w-4 text-black" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                 </svg>
-                                <span className="text-black">info@mottobeyoglu.com</span>
+                                <span className="text-black text-xs">info@mottobeyoglu.com</span>
                             </a>
                         </div>
                         <div className="flex items-center gap-4 text-black">
@@ -87,24 +87,24 @@ export function Header() {
                 </div>
             </div>
             <header className="bg-white sticky top-0 z-50 border-b border-gray-100" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex h-18 items-center">
-                        <div className="flex items-center gap-6 min-w-0 flex-shrink-0">
+                <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8">
+                    <div className="flex h-16 sm:h-18 items-center">
+                        <div className="flex items-center gap-3 sm:gap-6 min-w-0 flex-shrink-0">
                             {/* Categories Button - Left Side */}
                             <div className="lg:block">
                                 <button
                                     onClick={() => setCategoriesSidebarOpen(true)}
-                                    className="flex items-center justify-center p-3 text-black hover:bg-gray-50 rounded-md transition-all duration-200 cursor-pointer"
+                                    className="flex items-center justify-center p-2 sm:p-3 text-black hover:bg-gray-50 rounded-md transition-all duration-200 cursor-pointer"
                                 >
-                                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                                    <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                                     </svg>
                                 </button>
                             </div>
 
                             <Link href="/" className="flex items-center">
-                                <span className="text-3xl font-bold text-black">Motto</span>
-                                <span className="text-3xl font-light text-gray-600 ml-1">Beyoğlu</span>
+                                <span className="text-2xl sm:text-3xl font-bold text-black">Motto</span>
+                                <span className="text-2xl sm:text-3xl font-light text-gray-600 ml-1">Beyoğlu</span>
                             </Link>
 
                             {/* Desktop Navigation Links */}
@@ -120,33 +120,33 @@ export function Header() {
                                 ))}
                             </div>
                         </div>
-                        <div className="w-80 mx-8 hidden md:block">
+                        <div className="w-60 sm:w-80 mx-4 sm:mx-8 hidden md:block">
                             <div className="relative">
                                 <Input
                                     type="text"
                                     placeholder="Ürün ara..."
-                                    className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-full focus:ring-1 focus:ring-gray-400 focus:border-gray-400 text-sm bg-gray-50"
+                                    className="w-full pl-3 sm:pl-4 pr-8 sm:pr-10 py-2 border border-gray-300 rounded-full focus:ring-1 focus:ring-gray-400 focus:border-gray-400 text-xs sm:text-sm bg-gray-50"
                                 />
-                                <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full bg-gray-800 hover:bg-black text-white p-0">
+                                <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-gray-800 hover:bg-black text-white p-0">
                                     <Search className="h-3 w-3" />
                                 </Button>
                             </div>
                         </div>
-                        <div className="flex items-center gap-6 min-w-0 flex-shrink-0">
-                            <Button variant="ghost" size="sm" className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        <div className="flex items-center gap-4 sm:gap-6 min-w-0 flex-shrink-0">
+                            <Button variant="ghost" size="sm" className="lg:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                {mobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
                             </Button>
                         </div>
                     </div>
                     {mobileMenuOpen && (
-                        <div className="lg:hidden py-4 border-t border-gray-200">
-                            <div className="flex flex-col space-y-4">
-                                <div className="md:hidden">
+                        <div className="lg:hidden py-3 sm:py-4 border-t border-gray-200">
+                            <div className="flex flex-col space-y-3 sm:space-y-4">
+                                <div className="md:hidden px-1">
                                     <div className="relative">
                                         <Input
                                             type="text"
                                             placeholder="Ürün ara..."
-                                            className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md bg-gray-50"
+                                            className="w-full pl-3 pr-8 py-2.5 border border-gray-300 rounded-md bg-gray-50 text-sm"
                                         />
                                         <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-6 w-6 rounded bg-gray-800 hover:bg-black p-0">
                                             <Search className="h-3 w-3" />
@@ -155,7 +155,7 @@ export function Header() {
                                 </div>
                                 <button
                                     onClick={() => setCategoriesSidebarOpen(true)}
-                                    className="flex items-center gap-2 text-base font-medium text-black hover:text-black transition-colors cursor-pointer text-left"
+                                    className="flex items-center gap-2 text-base font-medium text-black hover:text-black transition-colors cursor-pointer text-left px-1"
                                 >
                                     <Menu className="h-5 w-5" />
                                     <span>Kategoriler</span>
@@ -164,7 +164,7 @@ export function Header() {
                                     <Link
                                         key={item.name}
                                         href={item.href}
-                                        className="hover-underline cursor-pointer text-base font-medium text-black hover:text-black transition-colors duration-200"
+                                        className="hover-underline cursor-pointer text-base font-medium text-black hover:text-black transition-colors duration-200 px-1"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {item.name}

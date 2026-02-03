@@ -79,35 +79,35 @@ export default async function ProductDetailPage({ params }: PageProps) {
         </div>
 
         {/* Product Detail */}
-        <section className="py-12 sm:py-16">
+        <section className="py-8 sm:py-12 md:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
               {/* Product Images */}
               <ProductGallery images={images} productName={product.name} />
 
               {/* Product Info */}
               <div className="flex flex-col">
                 <div>
-                  <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
+                  <p className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider mb-2">
                     {product.category}
                   </p>
-                  <h1 className="text-3xl sm:text-4xl font-semibold text-foreground mb-4">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-3 sm:mb-4 leading-tight">
                     {product.name}
                   </h1>
-                  <p className="text-3xl font-semibold text-foreground mb-6">
+                  <p className="text-2xl sm:text-3xl font-semibold text-foreground mb-4 sm:mb-6">
                     {formattedPrice}
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-8">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6 sm:mb-8">
                     {product.description}
                   </p>
                 </div>
 
                 {/* Contact Info */}
-                <div className="bg-muted rounded-lg p-6 mb-8">
-                  <p className="text-foreground font-medium mb-2">
+                <div className="bg-muted rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+                  <p className="text-sm sm:text-base text-foreground font-medium mb-2">
                     Bu ürünü satın almak ister misiniz?
                   </p>
-                  <p className="text-sm text-muted-foreground mb-6">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">
                     Sipariş ve detaylı bilgi için bizimle WhatsApp veya Instagram
                     üzerinden iletişime geçebilirsiniz.
                   </p>
@@ -118,8 +118,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 </div>
 
                 {/* Additional Info */}
-                <div className="border-t border-border pt-6 mt-auto">
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="border-t border-border pt-4 sm:pt-6 mt-auto">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
                     <div>
                       <p className="text-muted-foreground">Stok Durumu</p>
                       <p className="font-medium text-foreground">Sınırlı Stok</p>
@@ -137,12 +137,12 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
-          <section className="py-12 sm:py-16 bg-card border-t border-border">
+          <section className="py-8 sm:py-12 md:py-16 bg-card border-t border-border">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-8">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mb-6 sm:mb-8">
                 Benzer Ürünler
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {relatedProducts.map((relatedProduct) => (
                   <ProductCard key={relatedProduct.id} product={relatedProduct} />
                 ))}
