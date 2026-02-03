@@ -262,16 +262,24 @@ export default function NewHeader() {
             {/* Search Overlay */}
             {
                 searchOpen && (
-                    <div className="fixed inset-0 z-50 bg-black bg-opacity-50" onClick={() => setSearchOpen(false)}>
-                        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-96 bg-white rounded-lg p-4" onClick={(e) => e.stopPropagation()}>
-                            <input
-                                type="text"
-                                placeholder="Ürün ara..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
-                                autoFocus
-                            />
+                    <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg animate-slideDown">
+                        <div className="mx-auto max-w-7xl px-4 lg:px-6 py-4">
+                            <div className="flex items-center gap-4">
+                                <input
+                                    type="text"
+                                    placeholder="Ürün ara..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
+                                    autoFocus
+                                />
+                                <button
+                                    onClick={() => setSearchOpen(false)}
+                                    className="flex items-center justify-center w-10 h-10 text-black hover:bg-gray-100 rounded-md transition-all duration-200"
+                                >
+                                    <X className="h-5 w-5" />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )

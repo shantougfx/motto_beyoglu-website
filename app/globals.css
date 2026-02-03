@@ -265,7 +265,7 @@ header {
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Slide animations for sidebar */
+/* Slide animations for sidebar and search */
 @keyframes slideInLeft {
   from {
     transform: translateX(-100%);
@@ -287,6 +287,18 @@ header {
   to {
     transform: translateX(-100%);
     opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -320,6 +332,10 @@ header {
 
 .animate-slideOutLeft {
   animation: slideOutLeft 0.3s ease-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out;
 }
 
 .animate-slideInRight {
