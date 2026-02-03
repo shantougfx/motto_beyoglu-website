@@ -113,8 +113,11 @@ export default function NewHeader() {
                             </button>
 
                             <Link href="/" className="flex items-center">
-                                <span className="text-xl font-bold text-black">Motto</span>
-                                <span className="text-xl font-light text-gray-600 ml-1">Beyoğlu</span>
+                                <img
+                                    src="/motto-beyoglu-logo.png"
+                                    alt="Motto Beyoğlu"
+                                    className="h-8 w-auto"
+                                />
                             </Link>
 
                             <div className="hidden lg:flex items-center gap-8 ml-8">
