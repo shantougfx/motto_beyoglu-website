@@ -147,7 +147,7 @@ export default function NewHeader() {
                         style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
                         onClick={handleCloseSidebar}
                     />
-                    <div className={`fixed top-0 left-0 h-full w-64 sm:w-72 md:w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${categoriesSidebarClosing ? 'animate-slideOutLeft' : 'animate-slideInLeft'
+                    <div className={`fixed top-0 left-0 h-full w-56 sm:w-64 md:w-72 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${categoriesSidebarClosing ? 'animate-slideOutLeft' : 'animate-slideInLeft'
                         }`}>
                         {!activeSubcategory ? (
                             // Main Categories View
