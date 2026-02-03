@@ -40,7 +40,7 @@ export default function NewHeader() {
         setTimeout(() => {
             setActiveSubcategory(null);
             setCategoriesSidebarClosing(false);
-        }, 150); // Shorter animation for back action
+        }, 250); // Shorter animation for back action
     };
 
     const handleSubcategoryClick = () => {
@@ -53,7 +53,7 @@ export default function NewHeader() {
             setCategoriesSidebarOpen(false);
             setCategoriesSidebarClosing(false);
             setActiveSubcategory(null);
-        }, 300); // Match animation duration
+        }, 500); // Match animation duration
     };
 
     return (
@@ -147,7 +147,7 @@ export default function NewHeader() {
                         style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
                         onClick={handleCloseSidebar}
                     />
-                    <div className={`fixed top-0 left-0 h-full w-64 sm:w-72 md:w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${categoriesSidebarClosing ? 'animate-slideOutLeft' : 'animate-slideInLeft'
+                    <div className={`fixed top-0 left-0 h-full w-64 sm:w-72 md:w-80 bg-white shadow-xl transform transition-all duration-500 ease-out ${categoriesSidebarClosing ? 'translate-x-[-100%] opacity-0' : 'translate-x-0 opacity-100'
                         }`}>
                         {!activeSubcategory ? (
                             // Main Categories View
@@ -161,8 +161,8 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
                                     <button
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-pink-50 rounded-lg transition-colors duration-200 text-left transform hover:scale-105 opacity-0 animate-pulse"
-                                        style={{ color: '#EC407A', fontWeight: '700' }}
+                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer hover:bg-pink-50 rounded-lg transition-all duration-300 text-left transform hover:scale-105 opacity-0 animate-pulse"
+                                        style={{ color: '#EC407A', fontWeight: '700', transition: 'all 0.3s ease' }}
                                         style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: '0.1s' }}
                                     >
                                         ✨ YENİ SEZON
@@ -172,8 +172,8 @@ export default function NewHeader() {
                                         <button
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg transition-colors duration-200 flex items-center justify-between group transform hover:scale-105 opacity-0"
-                                            style={{ color: '#000000', fontWeight: '400' }}
+                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg transition-all duration-300 flex items-center justify-between group transform hover:scale-105 opacity-0"
+                                            style={{ color: '#000000', fontWeight: '400', transition: 'all 0.3s ease' }}
                                             style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: `${0.2 + (index * 0.1)}s` }}
                                         >
                                             <span>{categoryName}</span>
