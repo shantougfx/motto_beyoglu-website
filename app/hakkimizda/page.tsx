@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Clock, Heart } from "lucide-react";
-import { Header } from "@/components/header";
+import HeaderSimple from "@/components/header-simple";
 import { Footer } from "@/components/footer";
 import { FloatingContact } from "@/components/floating-contact";
-import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | Motto Beyoğlu",
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <HeaderSimple />
 
       <main className="flex-1">
         {/* Hero */}
@@ -159,14 +158,14 @@ export default function AboutPage() {
                     <strong>Çalışma Saatleri:</strong> Pazartesi - Cumartesi, 10:00 - 20:00
                   </p>
                   <p>
-                    <strong>Telefon:</strong> +90 (212) 123 45 67
+                    <strong>Telefon:</strong> +90 (534) 824 65 84
                   </p>
                 </div>
                 <Link href="/iletisim">
-                  <Button className="gap-2">
+                  <button className="gap-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center">
                     İletişime Geç
                     <ArrowRight className="h-4 w-4" />
-                  </Button>
+                  </button>
                 </Link>
               </div>
             </div>

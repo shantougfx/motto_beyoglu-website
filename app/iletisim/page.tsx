@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { Header } from "@/components/header";
+import HeaderSimple from "@/components/header-simple";
 import { Footer } from "@/components/footer";
 import { FloatingContact } from "@/components/floating-contact";
 import {
@@ -63,7 +63,7 @@ const faqs = [
 export default function HelpContactPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <HeaderSimple />
 
       <main className="flex-1">
         {/* Header */}

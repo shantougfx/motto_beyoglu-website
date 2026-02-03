@@ -1,11 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { Header } from "@/components/header";
+import HeaderSimple from "@/components/header-simple";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { FloatingContact } from "@/components/floating-contact";
-import { Button } from "@/components/ui/button";
 import { getFeaturedProducts } from "@/lib/products";
 
 export default function HomePage() {
@@ -13,7 +12,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <HeaderSimple />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -31,15 +30,15 @@ export default function HomePage() {
               </p>
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
                 <Link href="/urunler" className="w-full sm:w-auto">
-                  <Button size="lg" className="gap-2 px-6 sm:px-8 w-full sm:w-auto h-12 text-base">
+                  <button className="gap-2 px-6 sm:px-8 w-full sm:w-auto h-12 text-base bg-black text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center">
                     Ürünleri Keşfet
                     <ArrowRight className="h-4 w-4" />
-                  </Button>
+                  </button>
                 </Link>
                 <Link href="/iletisim" className="w-full sm:w-auto">
-                  <Button variant="outline" size="lg" className="px-6 sm:px-8 bg-transparent w-full sm:w-auto h-12 text-base">
+                  <button className="px-6 sm:px-8 bg-transparent w-full sm:w-auto h-12 text-base border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center">
                     İletişime Geç
-                  </Button>
+                  </button>
                 </Link>
               </div>
             </div>
@@ -101,10 +100,10 @@ export default function HomePage() {
                   kaliteli alışverişin tadını çıkarın.
                 </p>
                 <Link href="/hakkimizda">
-                  <Button variant="outline" className="gap-2 bg-transparent h-10 sm:h-11 text-sm sm:text-base px-4 sm:px-6">
+                  <button className="gap-2 bg-transparent h-10 sm:h-11 text-sm sm:text-base px-4 sm:px-6 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center">
                     Daha Fazla Bilgi
                     <ArrowRight className="h-4 w-4" />
-                  </Button>
+                  </button>
                 </Link>
               </div>
               <div className="order-1 lg:order-2">
@@ -133,13 +132,9 @@ export default function HomePage() {
               Size yardımcı olmaktan mutluluk duyarız.
             </p>
             <Link href="/iletisim">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-background text-background hover:bg-background hover:text-foreground bg-transparent h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base"
-              >
+              <button className="border border-white text-white hover:bg-white hover:text-black bg-transparent h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base rounded-lg transition-colors">
                 İletişime Geç
-              </Button>
+              </button>
             </Link>
           </div>
         </section>
