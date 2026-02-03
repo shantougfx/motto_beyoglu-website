@@ -161,7 +161,7 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
                                     <button
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-pink-50 rounded-lg transition-all duration-200 text-left transform hover:scale-105 opacity-0 animate-pulse active:scale-100"
+                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-pink-50 rounded-lg transition-all duration-200 text-left transform hover:scale-105 opacity-0 animate-pulse active:scale-100 active:bg-pink-100 active:text-pink-500"
                                         style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: '0.1s' }}
                                     >
                                         ✨ YENİ SEZON
@@ -171,7 +171,7 @@ export default function NewHeader() {
                                         <button
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 hover:text-black rounded-lg transition-all duration-200 flex items-center justify-between group transform hover:scale-105 opacity-0 active:scale-100 active:bg-gray-100"
+                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 hover:text-black rounded-lg transition-all duration-200 flex items-center justify-between group transform hover:scale-105 opacity-0 active:scale-100 active:bg-gray-100 active:text-black"
                                             style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: `${0.2 + (index * 0.1)}s` }}
                                         >
                                             <span>{categoryName}</span>
