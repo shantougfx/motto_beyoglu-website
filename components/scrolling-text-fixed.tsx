@@ -11,12 +11,12 @@ export default function ScrollingTextFixed() {
     };
 
     return (
-        <div className="text-white py-3 w-full flex items-center justify-between px-4 lg:px-6" style={{ backgroundColor: '#000000', fontFamily: 'Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
-            <span className="text-xs tracking-wider flex-1 sm:flex-none" style={{ fontWeight: '300', letterSpacing: '0.15em' }}>
-                <span style={{ fontWeight: '600' }}>3500 TL</span> üzeri <span style={{ fontWeight: '400' }}>Ücretsiz Kargo</span>
+        <div className="text-white py-3 w-full flex items-center justify-center px-4 lg:px-6" style={{ backgroundColor: '#000000', fontFamily: 'Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+            <span className="text-xs tracking-wider text-center" style={{ fontWeight: '600', letterSpacing: '0.15em' }}>
+                3500 TL üzeri Ücretsiz Kargo
             </span>
 
-            <div className="flex items-center gap-4 flex-shrink-0">
+            <div className="absolute right-4 lg:right-6 flex items-center gap-4 flex-shrink-0">
                 <button
                     onClick={handleStoreClick}
                     className="flex items-center gap-2 text-xs hover:opacity-80 transition-opacity cursor-pointer whitespace-nowrap"
