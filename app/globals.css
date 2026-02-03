@@ -206,27 +206,29 @@ header {
   white-space: nowrap !important;
 }
 
-/* Hover underline animation */
-.hover-underline {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
+/* Hover underline animation - Desktop only */
+@media (min-width: 768px) {
+  .hover-underline {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
 
-.hover-underline::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 50%;
-  background-color: currentColor;
-  transition: all 0.3s ease-in-out;
-  transform: translateX(-50%);
-}
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background-color: currentColor;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
 
-.hover-underline:hover::after {
-  width: 100%;
+  .hover-underline:hover::after {
+    width: 100%;
+  }
 }
 
 /* Fade in up animation */
