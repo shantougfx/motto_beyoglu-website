@@ -1,46 +1,9 @@
 export default function ScrollingTextFixed() {
     return (
-        <div className="text-white py-2 overflow-hidden whitespace-nowrap font-sans w-full flex items-center justify-center" style={{ backgroundColor: '#EC407A' }}>
-            <div
-                className="flex animate-marquee"
-                style={{
-                    animation: 'marquee 30s linear infinite',
-                    willChange: 'transform'
-                }}
-            >
-                <span className="text-xs font-medium px-8 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ
-                </span>
-                <span className="text-xs font-medium px-8 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
-                    HAVALE ÖDEMELERİNDE %5 İNDİRİM
-                </span>
-                <span className="text-xs font-medium px-8 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
-                    KARGO ÜCRETİ 200 TL ALICI ÖDER
-                </span>
-                <span className="text-xs font-medium px-8 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ
-                </span>
-                <span className="text-xs font-medium px-8 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
-                    HAVALE ÖDEMELERİNDE %5 İNDİRİM
-                </span>
-                <span className="text-xs font-medium px-8 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
-                    KARGO ÜCRETİ 200 TL ALICI ÖDER
-                </span>
-            </div>
-
-            <style jsx>{`
-                @keyframes marquee {
-                    0% { 
-                        transform: translate3d(0, 0, 0); 
-                    }
-                    100% { 
-                        transform: translate3d(-50%, 0, 0); 
-                    }
-                }
-                .animate-marquee {
-                    animation: marquee 30s linear infinite !important;
-                }
-            `}</style>
+        <div className="text-white py-2 font-sans w-full flex items-center justify-center" style={{ backgroundColor: '#000000' }}>
+            <span className="text-xs font-medium uppercase tracking-wide font-sans">
+                3000 TL ÜZERİ <span className="font-bold">KARGO ÜCRETSİZ</span>
+            </span>
         </div>
     );
 }
