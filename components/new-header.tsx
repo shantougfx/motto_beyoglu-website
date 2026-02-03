@@ -161,7 +161,7 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2">
                                     <button
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left animate-slideInRight"
+                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left animate-slideInLeft"
                                         style={{ animationDelay: '0.1s' }}
                                     >
                                         YENİ SEZON
@@ -171,7 +171,7 @@ export default function NewHeader() {
                                         <button
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between animate-slideInRight"
+                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between animate-slideInLeft"
                                             style={{ animationDelay: `${0.2 + (index * 0.1)}s` }}
                                         >
                                             <span>{categoryName}</span>
@@ -201,7 +201,7 @@ export default function NewHeader() {
                                         <button
                                             key={subcategory}
                                             onClick={handleSubcategoryClick}
-                                            className="w-full py-3 px-4 text-sm text-gray-600 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left hover-underline animate-slideInRight"
+                                            className="w-full py-3 px-4 text-sm text-gray-600 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left hover-underline animate-slideInLeft"
                                             style={{ animationDelay: `${index * 0.1}s` }}
                                         >
                                             {subcategory}
