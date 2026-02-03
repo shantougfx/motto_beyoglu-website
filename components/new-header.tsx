@@ -53,7 +53,15 @@ export default function NewHeader() {
             setCategoriesSidebarOpen(false);
             setCategoriesSidebarClosing(false);
             setActiveSubcategory(null);
+            // Re-enable body scroll
+            document.body.style.overflow = 'unset';
         }, 300); // Match animation duration
+    };
+
+    const handleOpenSidebar = () => {
+        setCategoriesSidebarOpen(true);
+        // Disable body scroll
+        document.body.style.overflow = 'hidden';
     };
 
     return (
@@ -96,7 +104,7 @@ export default function NewHeader() {
                         {/* Left Side - Hamburger + Logo */}
                         <div className="flex items-center gap-4">
                             <button
-                                onClick={() => setCategoriesSidebarOpen(true)}
+                                onClick={handleOpenSidebar}
                                 className="flex items-center justify-center w-8 h-8 text-black hover:bg-gray-100 rounded-md transition-all duration-200"
                             >
                                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -145,7 +153,9 @@ export default function NewHeader() {
                     <div
                         className="fixed inset-0 transition-opacity duration-300 pointer-events-auto"
                         style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
-                        onClick={handleCloseSidebar}
+                        onClick={() => {
+                            handleCloseSidebar();
+                        }}
                     />
                     <div className={`fixed top-0 left-0 h-full w-56 sm:w-64 md:w-72 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${categoriesSidebarClosing ? 'animate-slideOutLeft' : 'animate-slideInLeft'
                         }`}>
@@ -158,7 +168,7 @@ export default function NewHeader() {
                                         <X className="w-5 h-5" />
                                     </button>
                                 </div>
-                                <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
+                                <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)] overscroll-contain">
                                     <div
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
                                         className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-pink-50 rounded-lg text-left opacity-0 animate-fadeIn flex items-center gap-3 transform hover:scale-105 active:scale-100 active:bg-pink-100"
