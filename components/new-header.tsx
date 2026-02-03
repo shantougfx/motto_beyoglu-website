@@ -161,11 +161,11 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
                                     <div
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer rounded-lg text-left opacity-0 animate-fadeIn flex items-center gap-3"
+                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer hover:bg-pink-50 rounded-lg text-left opacity-0 animate-fadeIn flex items-center gap-3 transform hover:scale-105 active:scale-100 active:bg-pink-100 category-pink-stable"
                                         style={{
                                             animationDelay: '0.1s',
                                             animationFillMode: 'both',
-                                            color: '#EC407A'
+                                            transition: 'background-color 0.2s ease, transform 0.2s ease'
                                         }}
                                     >
                                         ✨ YENİ SEZON
@@ -175,15 +175,15 @@ export default function NewHeader() {
                                         <div
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm cursor-pointer rounded-lg flex items-center justify-between opacity-0 animate-fadeIn"
+                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg flex items-center justify-between opacity-0 animate-fadeIn transform hover:scale-105 active:scale-100 active:bg-gray-100 category-black-stable group"
                                             style={{
                                                 animationDelay: `${0.2 + (index * 0.1)}s`,
                                                 animationFillMode: 'both',
-                                                color: '#000000'
+                                                transition: 'background-color 0.2s ease, transform 0.2s ease'
                                             }}
                                         >
-                                            <span>{categoryName}</span>
-                                            <svg className="w-4 h-4" fill="none" stroke="#000000" viewBox="0 0 24 24">
+                                            <span className="category-black-stable">{categoryName}</span>
+                                            <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="#000000" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
                                         </div>

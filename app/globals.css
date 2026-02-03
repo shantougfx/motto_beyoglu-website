@@ -329,3 +329,24 @@ header {
 }
 
 /* Sidebar animations only - no color transitions */
+
+/* Force stable colors for categories */
+.category-pink-stable {
+  color: #EC407A !important;
+}
+
+.category-pink-stable:hover,
+.category-pink-stable:focus,
+.category-pink-stable:active {
+  color: #EC407A !important;
+}
+
+.category-black-stable {
+  color: #000000 !important;
+}
+
+.category-black-stable:hover,
+.category-black-stable:focus,
+.category-black-stable:active {
+  color: #000000 !important;
+}
