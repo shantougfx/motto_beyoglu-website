@@ -13,7 +13,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    name: "ZARA İşleme Bomber Ceket",
+    name: "ZARA İŞLEME BOMBER CEKET",
     price: 1500,
     description:
       "ZARA marka işlemeli bomber ceket. Geniş kollu, rahat kesim ve şık tasarımı ile günlük kullanım için ideal. Kaliteli kumaş ve detaylı işçilik.",
@@ -65,7 +65,7 @@ export const products: Product[] = [
   },
   {
     id: "13",
-    name: "ZARA İşleme Bomber Ceket",
+    name: "ZARA İŞLEME BOMBER CEKET",
     price: 1899,
     description:
       "ZARA marka işlemeli bomber ceket. Modern kesim ve kaliteli detaylar.",

@@ -159,33 +159,34 @@ export default function NewHeader() {
                                     </button>
                                 </div>
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
-                                    <button
+                                    <div
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer hover:bg-pink-50 rounded-lg transition-transform duration-[299ms] text-left transform hover:scale-105 opacity-0 animate-fadeIn category-pink"
+                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer rounded-lg text-left opacity-0 animate-fadeIn flex items-center gap-3"
                                         style={{
                                             animationDelay: '0.1s',
-                                            animationFillMode: 'both'
+                                            animationFillMode: 'both',
+                                            color: '#EC407A'
                                         }}
                                     >
                                         ✨ YENİ SEZON
-                                    </button>
+                                    </div>
 
                                     {Object.entries(categories).slice(1).map(([categoryName, subcategories], index) => (
-                                        <button
+                                        <div
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg transition-transform duration-[299ms] flex items-center justify-between group transform hover:scale-105 opacity-0 animate-fadeIn category-black"
+                                            className="w-full py-3 px-4 text-sm cursor-pointer rounded-lg flex items-center justify-between opacity-0 animate-fadeIn"
                                             style={{
                                                 animationDelay: `${0.2 + (index * 0.1)}s`,
-                                                animationFillMode: 'both'
+                                                animationFillMode: 'both',
+                                                color: '#000000'
                                             }}
-                                            style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: `${0.2 + (index * 0.1)}s` }}
                                         >
                                             <span>{categoryName}</span>
-                                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg className="w-4 h-4" fill="none" stroke="#000000" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
-                                        </button>
+                                        </div>
                                     ))}
 
                                     {/* Separator */}
@@ -243,25 +244,28 @@ export default function NewHeader() {
                                 </div>
                             </>
                         )}
-                    </div>
-                </div>
-            )}
+                    </div >
+                </div >
+            )
+            }
 
             {/* Search Overlay */}
-            {searchOpen && (
-                <div className="fixed inset-0 z-50 bg-black bg-opacity-50" onClick={() => setSearchOpen(false)}>
-                    <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-96 bg-white rounded-lg p-4" onClick={(e) => e.stopPropagation()}>
-                        <input
-                            type="text"
-                            placeholder="Ürün ara..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
-                            autoFocus
-                        />
+            {
+                searchOpen && (
+                    <div className="fixed inset-0 z-50 bg-black bg-opacity-50" onClick={() => setSearchOpen(false)}>
+                        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-96 bg-white rounded-lg p-4" onClick={(e) => e.stopPropagation()}>
+                            <input
+                                type="text"
+                                placeholder="Ürün ara..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
+                                autoFocus
+                            />
+                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
         </>
     );
 }
