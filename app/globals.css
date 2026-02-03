@@ -184,23 +184,26 @@ header {
   z-index: 50 !important;
 }
 
-/* Scrolling text animation */
+/* Scrolling text animation - Force override */
 @keyframes scroll {
   0% {
-    transform: translateX(100%);
+    transform: translateX(100%) !important;
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-100%) !important;
   }
 }
 
 .animate-scroll {
-  animation: scroll 40s linear infinite;
+  animation: scroll 40s linear infinite !important;
+  display: inline-block !important;
 }
 
 .animate-scroll-slow {
-  animation: scroll 60s linear infinite;
+  animation: scroll 60s linear infinite !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
 }
 
 /* Hover underline animation */
