@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Clock, Heart } from "lucide-react";
-import HeaderSimple from "@/components/header-simple";
+import Header from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FloatingContact } from "@/components/floating-contact";
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <HeaderSimple />
+      <Header />
 
       <main className="flex-1">
         {/* Hero */}

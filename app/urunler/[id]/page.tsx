@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import HeaderSimple from "@/components/header-simple";
+import Header from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ContactButtons } from "@/components/contact-buttons";
 import { ProductCard } from "@/components/product-card";
@@ -62,7 +62,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <HeaderSimple />
+      <Header />
 
       <main className="flex-1">
         {/* Breadcrumb */}
