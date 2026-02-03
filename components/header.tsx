@@ -96,7 +96,7 @@ export function Header() {
             <header className="bg-white sticky top-0 z-50 border-b border-gray-100" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
                 <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
                     <div className="flex h-12 sm:h-14 lg:h-16 items-center justify-between">
-                        <div className="flex items-center gap-1 sm:gap-2 lg:gap-4 min-w-0 flex-1">
+                        <div className="flex items-center gap-1 sm:gap-2 lg:gap-4 min-w-0">
                             {/* Categories Button */}
                             <button
                                 onClick={() => setCategoriesSidebarOpen(true)}
@@ -127,17 +127,32 @@ export function Header() {
                             </div>
                         </div>
 
-                        {/* Desktop Search */}
-                        <div className="hidden md:block flex-shrink-0 w-64 lg:w-80">
-                            <div className="relative">
-                                <Input
-                                    type="text"
-                                    placeholder="Ürün ara..."
-                                    className="w-full pl-3 pr-8 py-2 border border-gray-300 rounded-full focus:ring-1 focus:ring-gray-400 focus:border-gray-400 text-sm bg-gray-50"
-                                />
-                                <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-6 w-6 rounded-full bg-gray-800 hover:bg-black text-white p-0">
-                                    <Search className="h-3 w-3" />
-                                </Button>
+                        {/* Right Side */}
+                        <div className="flex items-center gap-1 sm:gap-2">
+                            {/* Mobile Search Button */}
+                            <button className="md:hidden flex items-center justify-center p-1.5 text-black hover:bg-gray-50 rounded-md transition-all duration-200">
+                                <Search className="h-4 w-4" />
+                            </button>
+
+                            {/* Mobile Contact Button */}
+                            <Link href="/iletisim" className="md:hidden flex items-center justify-center p-1.5 text-black hover:bg-gray-50 rounded-md transition-all duration-200">
+                                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                            </Link>
+
+                            {/* Desktop Search */}
+                            <div className="hidden md:block flex-shrink-0 w-64 lg:w-80">
+                                <div className="relative">
+                                    <Input
+                                        type="text"
+                                        placeholder="Ürün ara..."
+                                        className="w-full pl-3 pr-8 py-2 border border-gray-300 rounded-full focus:ring-1 focus:ring-gray-400 focus:border-gray-400 text-sm bg-gray-50"
+                                    />
+                                    <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-6 w-6 rounded-full bg-gray-800 hover:bg-black text-white p-0">
+                                        <Search className="h-3 w-3" />
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
