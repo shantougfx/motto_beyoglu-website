@@ -321,13 +321,13 @@ export default function ProductsPage() {
             </section>
 
             {/* Info Banner */}
-            <section className="py-12 sm:py-16 bg-muted">
+            <section className="py-8 sm:py-12 md:py-16 bg-muted">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-2xl mx-auto">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-4">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
                     Sipariş Vermek İster misiniz?
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-4">
                     Ürünlerimiz hakkında detaylı bilgi almak veya sipariş vermek için
                     WhatsApp veya Instagram üzerinden bizimle iletişime geçebilirsiniz.
                     Size en kısa sürede dönüş yapacağız.
@@ -335,10 +335,12 @@ export default function ProductsPage() {
                 </div>
               </div>
             </section>
-          </main>
+          </div>
+        </section>
+      </main>
 
-          <Footer />
-          <FloatingContact />
-        </div>
-        );
+      <Footer />
+      <FloatingContact />
+    </div>
+  );
 }
