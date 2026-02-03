@@ -21,6 +21,7 @@ const categories = {
 
 export default function NewHeader() {
     const [categoriesSidebarOpen, setCategoriesSidebarOpen] = useState(false);
+    const [categoriesSidebarClosing, setCategoriesSidebarClosing] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
@@ -30,8 +31,7 @@ export default function NewHeader() {
             setActiveSubcategory(categoryName);
         } else {
             // For YENİ SEZON or categories without subcategories, close sidebar and navigate
-            setCategoriesSidebarOpen(false);
-            setActiveSubcategory(null);
+            handleCloseSidebar();
         }
     };
 
@@ -40,8 +40,16 @@ export default function NewHeader() {
     };
 
     const handleSubcategoryClick = () => {
-        setCategoriesSidebarOpen(false);
-        setActiveSubcategory(null);
+        handleCloseSidebar();
+    };
+
+    const handleCloseSidebar = () => {
+        setCategoriesSidebarClosing(true);
+        setTimeout(() => {
+            setCategoriesSidebarOpen(false);
+            setCategoriesSidebarClosing(false);
+            setActiveSubcategory(null);
+        }, 300); // Match animation duration
     };
 
     return (
@@ -132,18 +140,16 @@ export default function NewHeader() {
                 <div className="fixed inset-0 z-50">
                     <div
                         className="fixed inset-0 transition-opacity duration-300"
-                        onClick={() => {
-                            setCategoriesSidebarOpen(false);
-                            setActiveSubcategory(null);
-                        }}
+                        onClick={handleCloseSidebar}
                     />
-                    <div className="fixed top-0 left-0 h-full w-64 sm:w-72 md:w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out animate-slideInLeft">
+                    <div className={`fixed top-0 left-0 h-full w-64 sm:w-72 md:w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${categoriesSidebarClosing ? 'animate-slideOutLeft' : 'animate-slideInLeft'
+                        }`}>
                         {!activeSubcategory ? (
                             // Main Categories View
                             <>
                                 <div className="flex items-center justify-between p-4 border-b border-gray-200">
                                     <h3 className="text-lg font-semibold text-black">Kategoriler</h3>
-                                    <button onClick={() => setCategoriesSidebarOpen(false)} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
+                                    <button onClick={handleCloseSidebar} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
                                         <X className="w-5 h-5" />
                                     </button>
                                 </div>
@@ -179,7 +185,7 @@ export default function NewHeader() {
                                         </button>
                                         <h3 className="text-lg font-semibold text-black">{activeSubcategory}</h3>
                                     </div>
-                                    <button onClick={() => setCategoriesSidebarOpen(false)} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
+                                    <button onClick={handleCloseSidebar} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
                                         <X className="w-5 h-5" />
                                     </button>
                                 </div>
