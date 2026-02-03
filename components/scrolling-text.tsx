@@ -1,46 +1,25 @@
-"use client";
-
-export function ScrollingText() {
+export default function ScrollingText() {
     return (
-        <div className="text-white py-1 overflow-hidden whitespace-nowrap font-sans" style={{ backgroundColor: '#EC407A' }}>
-            <div className="animate-scroll-slow inline-block">
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    HAVALE ÖDEMELERİNDE %5 İNDİRİM !!!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    KARGO ÜCRETİ 200 TL - ALICI ÖDER
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    HAVALE ÖDEMELERİNDE %5 İNDİRİM !!!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    KARGO ÜCRETİ 200 TL - ALICI ÖDER
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    HAVALE ÖDEMELERİNDE %5 İNDİRİM !!!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    KARGO ÜCRETİ 200 TL - ALICI ÖDER
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    HAVALE ÖDEMELERİNDE %5 İNDİRİM !!!
-                </span>
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans">
-                    KARGO ÜCRETİ 200 TL - ALICI ÖDER
+        <div className="text-white py-1 overflow-hidden whitespace-nowrap font-sans w-full" style={{ backgroundColor: '#EC407A' }}>
+            <div
+                className="inline-block whitespace-nowrap"
+                style={{
+                    animation: 'marquee 60s linear infinite',
+                    animationFillMode: 'forwards',
+                    transform: 'translateX(100%)'
+                }}
+            >
+                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans inline-block">
+                    3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER • 3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER • 3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER
                 </span>
             </div>
+
+            <style jsx>{`
+                @keyframes marquee {
+                    0% { transform: translateX(100%); }
+                    100% { transform: translateX(-100%); }
+                }
+            `}</style>
         </div>
     );
 }
