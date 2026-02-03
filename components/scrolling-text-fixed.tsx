@@ -4,31 +4,32 @@ export default function ScrollingTextFixed() {
             <div
                 className="flex animate-marquee"
                 style={{
-                    animation: 'marquee 20s linear infinite'
+                    animation: 'marquee 25s linear infinite',
+                    willChange: 'transform'
                 }}
             >
-                <span className="text-xs font-normal px-3 uppercase tracking-wide font-sans flex-shrink-0">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER
+                <span className="text-xs font-normal px-2 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
+                    3000 TL ÜZERİ KARGO ÜCRETSİZ • HAVALE ÖDEMELERİNDE %5 İNDİRİM • KARGO ÜCRETİ 200 TL ALICI ÖDER •
                 </span>
-                <span className="text-xs font-normal px-3 uppercase tracking-wide font-sans flex-shrink-0">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER
+                <span className="text-xs font-normal px-2 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
+                    3000 TL ÜZERİ KARGO ÜCRETSİZ • HAVALE ÖDEMELERİNDE %5 İNDİRİM • KARGO ÜCRETİ 200 TL ALICI ÖDER •
                 </span>
-                <span className="text-xs font-normal px-3 uppercase tracking-wide font-sans flex-shrink-0">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER
+                <span className="text-xs font-normal px-2 uppercase tracking-wide font-sans flex-shrink-0 whitespace-nowrap">
+                    3000 TL ÜZERİ KARGO ÜCRETSİZ • HAVALE ÖDEMELERİNDE %5 İNDİRİM • KARGO ÜCRETİ 200 TL ALICI ÖDER •
                 </span>
             </div>
 
             <style jsx>{`
                 @keyframes marquee {
                     0% { 
-                        transform: translateX(0); 
+                        transform: translate3d(0, 0, 0); 
                     }
                     100% { 
-                        transform: translateX(-33.333%); 
+                        transform: translate3d(-33.333%, 0, 0); 
                     }
                 }
                 .animate-marquee {
-                    animation: marquee 20s linear infinite !important;
+                    animation: marquee 25s linear infinite !important;
                 }
             `}</style>
         </div>
