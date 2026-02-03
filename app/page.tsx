@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import Header from "@/components/header";
+import HeaderWorking from "@/components/header-working";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { FloatingContact } from "@/components/floating-contact";
@@ -12,7 +12,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <HeaderWorking />
 
       <main className="flex-1">
         {/* Hero Section */}

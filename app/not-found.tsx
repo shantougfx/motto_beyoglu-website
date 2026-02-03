@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import Header from "@/components/header";
+import HeaderWorking from "@/components/header-working";
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <HeaderWorking />
 
       <main className="flex-1 flex items-center justify-center py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
@@ -27,6 +27,12 @@ export default function NotFound() {
           </Link>
         </div>
       </main>
+
+      <footer className="bg-black text-white py-8">
+        <div className="mx-auto max-w-7xl px-4 text-center">
+          <p className="text-sm">© 2024 Motto Beyoğlu. Tüm hakları saklıdır.</p>
+        </div>
+      </footer>
     </div>
   );
 }
