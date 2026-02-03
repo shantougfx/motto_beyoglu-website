@@ -12,11 +12,11 @@ export default function ScrollingTextFixed() {
 
     return (
         <div className="text-white py-3 w-full flex items-center justify-center px-4 lg:px-6" style={{ backgroundColor: '#000000', fontFamily: 'Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
-            <span className="text-xs tracking-wider text-center" style={{ fontWeight: '600', letterSpacing: '0.15em' }}>
+            <span className="text-xs sm:text-sm tracking-wider text-center" style={{ fontWeight: '400', letterSpacing: '0.1em' }}>
                 3500 TL üzeri Ücretsiz Kargo
             </span>
 
-            <div className="absolute right-4 lg:right-6 flex items-center gap-4 flex-shrink-0">
+            <div className="hidden sm:flex absolute right-4 lg:right-6 items-center gap-4 flex-shrink-0">
                 <button
                     onClick={handleStoreClick}
                     className="flex items-center gap-2 text-xs hover:opacity-80 transition-opacity cursor-pointer whitespace-nowrap"
@@ -26,8 +26,7 @@ export default function ScrollingTextFixed() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    <span className="hidden sm:inline">Mağazamız</span>
-                    <span className="sm:hidden">Mağaza</span>
+                    Mağazamız
                 </button>
             </div>
         </div>
