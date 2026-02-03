@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -8,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { ContactButtons } from "@/components/contact-buttons";
 import { ProductCard } from "@/components/product-card";
 import { FloatingContact } from "@/components/floating-contact";
+import { ProductGallery } from "@/components/product-gallery";
 import { getProductById, products } from "@/lib/products";
 
 interface PageProps {
@@ -46,6 +46,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const images = product.gallery || [product.image];
+
   const formattedPrice = new Intl.NumberFormat("tr-TR", {
     style: "currency",
     currency: "TRY",
@@ -80,17 +82,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
         <section className="py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-              {/* Product Image */}
-              <div className="aspect-[3/4] relative rounded-lg overflow-hidden bg-muted">
-                <Image
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
+              {/* Product Images */}
+              <ProductGallery images={images} productName={product.name} />
 
               {/* Product Info */}
               <div className="flex flex-col">
@@ -98,7 +91,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
                     {product.category}
                   </p>
-                  <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground mb-4">
+                  <h1 className="text-3xl sm:text-4xl font-semibold text-foreground mb-4">
                     {product.name}
                   </h1>
                   <p className="text-3xl font-semibold text-foreground mb-6">
@@ -146,7 +139,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         {relatedProducts.length > 0 && (
           <section className="py-12 sm:py-16 bg-card border-t border-border">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-foreground mb-8">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-8">
                 Benzer Ürünler
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

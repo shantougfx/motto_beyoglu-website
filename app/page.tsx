@@ -20,14 +20,14 @@ export default function HomePage() {
         <section className="relative overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
             <div className="text-center max-w-3xl mx-auto">
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight text-balance">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight text-balance">
                 Seçili Ürünler,
                 <br />
                 <span className="text-muted-foreground">Özel Fiyatlar</span>
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
                 İhracat fazlası seçili ürünler – sınırlı stok.
-                Beyoğlu'nun kalbinden, kaliteli parçalar.
+                Ümraniye'den, kaliteli parçalar.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/urunler">
@@ -59,7 +59,7 @@ export default function HomePage() {
                 <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
                   Koleksiyon
                 </p>
-                <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground">
+                <h2 className="text-3xl sm:text-4xl font-semibold text-foreground">
                   Öne Çıkan Ürünler
                 </h2>
               </div>
@@ -88,8 +88,8 @@ export default function HomePage() {
                 <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
                   Hikayemiz
                 </p>
-                <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground mb-6">
-                  Beyoğlu'nun Kalbinde
+                <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-6">
+                  Ümraniye'de Hizmetinizdeyiz
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Motto Beyoğlu olarak, ihracat fazlası kaliteli ürünleri sizlerle
@@ -125,7 +125,7 @@ export default function HomePage() {
         {/* CTA Section */}
         <section className="py-16 sm:py-24 bg-foreground text-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="font-serif text-3xl sm:text-4xl font-semibold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-semibold mb-4">
               Sorularınız mı var?
             </h2>
             <p className="text-background/70 max-w-xl mx-auto mb-8">

@@ -10,12 +10,12 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="font-serif text-2xl font-semibold tracking-tight">
+              <span className="text-2xl font-semibold tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Motto Beyoğlu
               </span>
             </Link>
             <p className="mt-4 text-sm text-background/70 leading-relaxed max-w-xs">
-              Beyoğlu'nun kalbinde, ihracat fazlası seçili ürünler. Sınırlı
+              Ümraniye'de, ihracat fazlası seçili ürünler. Sınırlı
               stok, özel fiyatlar.
             </p>
           </div>
@@ -59,8 +59,9 @@ export function Footer() {
               İletişim
             </h3>
             <div className="space-y-3 text-sm text-background/70">
-              <p>İstiklal Caddesi No: 123</p>
-              <p>Beyoğlu, İstanbul</p>
+              <p>Göksel Sk. No: 4A/A</p>
+              <p>Yaman Evler Mah., Ümraniye</p>
+              <p>İstanbul 34768</p>
               <p>+90 (212) 123 45 67</p>
             </div>
             <div className="flex items-center gap-4 mt-6">
@@ -74,7 +75,7 @@ export function Footer() {
                 <WhatsAppIcon className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com/mottobeyoglu"
+                href="https://instagram.com/motto_beyoglu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-background/70 hover:text-background transition-colors"

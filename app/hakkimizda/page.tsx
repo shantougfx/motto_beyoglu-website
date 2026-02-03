@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Hakkımızda | Motto Beyoğlu",
   description:
-    "Motto Beyoğlu - Beyoğlu'nun kalbinde, ihracat fazlası seçili ürünler sunan fiziksel mağazamız hakkında bilgi edinin.",
+    "Motto Beyoğlu - Ümraniye'de, ihracat fazlası seçili ürünler sunan fiziksel mağazamız hakkında bilgi edinin.",
 };
 
 export default function AboutPage() {
@@ -27,8 +27,8 @@ export default function AboutPage() {
                 <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
                   Hakkımızda
                 </p>
-                <h1 className="font-serif text-4xl sm:text-5xl font-semibold text-foreground mb-6 text-balance">
-                  Beyoğlu'nun Kalbinde,
+                <h1 className="text-4xl sm:text-5xl font-semibold text-foreground mb-6 text-balance">
+                  Ümraniye'de,
                   <br />
                   <span className="text-muted-foreground">Kaliteli Ürünler</span>
                 </h1>
@@ -54,7 +54,7 @@ export default function AboutPage() {
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground mb-8 text-center">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-8 text-center">
                 Hikayemiz
               </h2>
               <div className="prose prose-lg text-muted-foreground mx-auto">
@@ -81,7 +81,7 @@ export default function AboutPage() {
         {/* Values */}
         <section className="py-16 sm:py-24 bg-card">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground mb-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-12 text-center">
               Neden Biz?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -89,7 +89,7 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-6 w-6 text-foreground" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-xl font-semibold text-foreground mb-3">
                   Kalite Odaklı
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -101,11 +101,11 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
                   <MapPin className="h-6 w-6 text-foreground" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-xl font-semibold text-foreground mb-3">
                   Merkezi Konum
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Beyoğlu'nun kalbinde, İstiklal Caddesi üzerinde kolayca
+                  Ümraniye'de, Göksel Sokak üzerinde kolayca
                   ulaşabileceğiniz bir lokasyondayız.
                 </p>
               </div>
@@ -113,7 +113,7 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
                   <Clock className="h-6 w-6 text-foreground" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-xl font-semibold text-foreground mb-3">
                   Sınırlı Stok
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -139,7 +139,7 @@ export default function AboutPage() {
                 />
               </div>
               <div>
-                <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground mb-6">
+                <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-6">
                   Mağazamızı Ziyaret Edin
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-6">
@@ -153,7 +153,7 @@ export default function AboutPage() {
                 </p>
                 <div className="space-y-4 text-sm text-foreground mb-8">
                   <p>
-                    <strong>Adres:</strong> İstiklal Caddesi No: 123, Beyoğlu, İstanbul
+                    <strong>Adres:</strong> Göksel Sk. No: 4A/A, Yaman Evler Mah., Ümraniye, İstanbul 34768
                   </p>
                   <p>
                     <strong>Çalışma Saatleri:</strong> Pazartesi - Cumartesi, 10:00 - 20:00

@@ -14,7 +14,7 @@ export default function NotFound() {
           <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">
             404 Hatası
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl font-semibold text-foreground mb-4">
+          <h1 className="text-4xl sm:text-5xl font-semibold text-foreground mb-4">
             Sayfa Bulunamadı
           </h1>
           <p className="text-muted-foreground max-w-md mx-auto mb-8">

@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Motto Beyoğlu | İhracat Fazlası Seçili Ürünler",
   description:
-    "Beyoğlu'nun kalbinde, ihracat fazlası seçili ürünler. Sınırlı stok, özel fiyatlar. WhatsApp veya Instagram üzerinden sipariş verin.",
+    "Ümraniye'de, ihracat fazlası seçili ürünler. Sınırlı stok, özel fiyatlar. WhatsApp veya Instagram üzerinden sipariş verin.",
   keywords: [
     "Motto Beyoğlu",
     "ihracat fazlası",
