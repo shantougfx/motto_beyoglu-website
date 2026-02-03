@@ -131,7 +131,7 @@ export default function NewHeader() {
             {categoriesSidebarOpen && (
                 <div className="fixed inset-0 z-50">
                     <div
-                        className="fixed inset-0 bg-black bg-opacity-10 transition-opacity duration-300"
+                        className="fixed inset-0 transition-opacity duration-300"
                         onClick={() => {
                             setCategoriesSidebarOpen(false);
                             setActiveSubcategory(null);
