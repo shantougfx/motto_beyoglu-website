@@ -139,6 +139,14 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Comfortaa', sans-serif;
+    min-width: 320px;
+    /* Minimum mobile width */
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html,
+  body {
+    overflow-x: hidden;
   }
 }
 
