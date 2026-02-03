@@ -161,16 +161,18 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2">
                                     <button
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left"
+                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left animate-slideInRight"
+                                        style={{ animationDelay: '0.1s' }}
                                     >
                                         YENİ SEZON
                                     </button>
 
-                                    {Object.entries(categories).slice(1).map(([categoryName, subcategories]) => (
+                                    {Object.entries(categories).slice(1).map(([categoryName, subcategories], index) => (
                                         <button
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between"
+                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between animate-slideInRight"
+                                            style={{ animationDelay: `${0.2 + (index * 0.1)}s` }}
                                         >
                                             <span>{categoryName}</span>
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -195,11 +197,12 @@ export default function NewHeader() {
                                     </button>
                                 </div>
                                 <div className="p-4 space-y-2 animate-fadeIn">
-                                    {categories[activeSubcategory as keyof typeof categories].map((subcategory) => (
+                                    {categories[activeSubcategory as keyof typeof categories].map((subcategory, index) => (
                                         <button
                                             key={subcategory}
                                             onClick={handleSubcategoryClick}
-                                            className="w-full py-3 px-4 text-sm text-gray-600 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left hover-underline"
+                                            className="w-full py-3 px-4 text-sm text-gray-600 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left hover-underline animate-slideInRight"
+                                            style={{ animationDelay: `${index * 0.1}s` }}
                                         >
                                             {subcategory}
                                         </button>
