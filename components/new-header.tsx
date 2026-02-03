@@ -176,7 +176,14 @@ export default function NewHeader() {
                                             e.currentTarget.style.color = '#EC407A';
                                             e.currentTarget.style.fontWeight = '700';
                                         }}
-                                        style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: '0.1s' }}
+                                        onFocus={(e) => {
+                                            e.currentTarget.style.color = '#EC407A';
+                                            e.currentTarget.style.fontWeight = '700';
+                                        }}
+                                        onBlur={(e) => {
+                                            e.currentTarget.style.color = '#EC407A';
+                                            e.currentTarget.style.fontWeight = '700';
+                                        }}
                                     >
                                         ✨ YENİ SEZON
                                     </button>
@@ -197,6 +204,14 @@ export default function NewHeader() {
                                                 e.currentTarget.style.fontWeight = '400';
                                             }}
                                             onMouseLeave={(e) => {
+                                                e.currentTarget.style.color = '#000000';
+                                                e.currentTarget.style.fontWeight = '400';
+                                            }}
+                                            onFocus={(e) => {
+                                                e.currentTarget.style.color = '#000000';
+                                                e.currentTarget.style.fontWeight = '400';
+                                            }}
+                                            onBlur={(e) => {
                                                 e.currentTarget.style.color = '#000000';
                                                 e.currentTarget.style.fontWeight = '400';
                                             }}
