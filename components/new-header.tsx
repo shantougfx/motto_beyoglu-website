@@ -183,7 +183,7 @@ export default function NewHeader() {
                                             }}
                                         >
                                             <span>{categoryName}</span>
-                                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="#374151" viewBox="0 0 24 24">
+                                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="#1F2937" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
                                         </div>
