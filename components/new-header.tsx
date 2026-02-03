@@ -116,7 +116,7 @@ export default function NewHeader() {
                                 <img
                                     src="/motto-beyoglu-logo.png"
                                     alt="Motto Beyoğlu"
-                                    className="h-12 w-auto"
+                                    className="h-20 w-auto"
                                 />
                             </Link>
 
