@@ -161,8 +161,8 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
                                     <button
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-pink-50 rounded-lg transition-all duration-200 text-left transform hover:scale-105 opacity-0 animate-fadeIn"
-                                        style={{ animationDelay: '0.1s', animationFillMode: 'both', color: '#EC407A !important' }}
+                                        className="w-full py-3 px-4 text-sm font-bold cursor-pointer hover:bg-pink-50 rounded-lg transition-colors duration-200 text-left transform hover:scale-105 opacity-0 animate-fadeIn"
+                                        style={{ animationDelay: '0.1s', animationFillMode: 'both', color: '#EC407A' }}
                                         style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: '0.1s' }}
                                     >
                                         ✨ YENİ SEZON
@@ -172,8 +172,8 @@ export default function NewHeader() {
                                         <button
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded-lg transition-all duration-200 flex items-center justify-between group transform hover:scale-105 opacity-0 animate-fadeIn"
-                                            style={{ animationDelay: `${0.2 + (index * 0.1)}s`, animationFillMode: 'both', color: '#000000 !important' }}
+                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg transition-colors duration-200 flex items-center justify-between group transform hover:scale-105 opacity-0 animate-fadeIn"
+                                            style={{ animationDelay: `${0.2 + (index * 0.1)}s`, animationFillMode: 'both', color: '#000000' }}
                                             style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: `${0.2 + (index * 0.1)}s` }}
                                         >
                                             <span>{categoryName}</span>
