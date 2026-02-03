@@ -175,15 +175,15 @@ export default function NewHeader() {
                                         <div
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg flex items-center justify-between opacity-0 animate-fadeIn transform hover:scale-105 active:scale-100 active:bg-gray-100 category-black-stable group"
+                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg flex items-center justify-between opacity-0 animate-fadeIn transform hover:scale-105 active:scale-100 active:bg-gray-100 category-gray-stable group"
                                             style={{
                                                 animationDelay: `${0.2 + (index * 0.1)}s`,
                                                 animationFillMode: 'both',
-                                                transition: 'background-color 0.3s ease, transform 0.3s ease'
+                                                transition: 'background-color 0.3s ease, transform 0.3s ease, color 0.3s ease'
                                             }}
                                         >
-                                            <span className="category-black-stable">{categoryName}</span>
-                                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="#000000" viewBox="0 0 24 24">
+                                            <span className="category-gray-stable">{categoryName}</span>
+                                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="#6B7280" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
                                         </div>

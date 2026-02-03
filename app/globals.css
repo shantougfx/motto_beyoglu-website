@@ -341,12 +341,12 @@ header {
   color: #EC407A !important;
 }
 
-.category-black-stable {
-  color: #000000 !important;
+.category-gray-stable {
+  color: #6B7280 !important;
 }
 
-.category-black-stable:hover,
-.category-black-stable:focus,
-.category-black-stable:active {
+.category-gray-stable:hover,
+.category-gray-stable:focus,
+.category-gray-stable:active {
   color: #000000 !important;
 }
