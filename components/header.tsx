@@ -22,7 +22,7 @@ export function Header() {
     return (
         <>
             <ScrollingText />
-            <div className="bg-gray-50 py-2 sm:py-3 hidden md:block border-b border-gray-200">
+            <div className="bg-gray-50 py-2 sm:py-3 border-b border-gray-200">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between text-xs font-normal text-black leading-none">
                         <div className="flex items-center gap-4 sm:gap-6 text-black">
@@ -133,48 +133,9 @@ export function Header() {
                             </div>
                         </div>
 
-                        {/* Mobile Menu Button */}
-                        <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 min-w-0 flex-shrink-0">
-                            <Button variant="ghost" size="sm" className="lg:hidden p-1.5 sm:p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                {mobileMenuOpen ? <X className="h-4 w-4 sm:h-5 sm:w-5" /> : <Menu className="h-4 w-4 sm:h-5 sm:w-5" />}
-                            </Button>
-                        </div>
+                        {/* Mobile Menu Button - REMOVED */}
                     </div>
-                    {mobileMenuOpen && (
-                        <div className="lg:hidden py-3 sm:py-4 border-t border-gray-200">
-                            <div className="flex flex-col space-y-3 sm:space-y-4">
-                                <div className="md:hidden px-1">
-                                    <div className="relative">
-                                        <Input
-                                            type="text"
-                                            placeholder="Ürün ara..."
-                                            className="w-full pl-3 pr-8 py-2.5 border border-gray-300 rounded-md bg-gray-50 text-sm"
-                                        />
-                                        <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-6 w-6 rounded bg-gray-800 hover:bg-black p-0">
-                                            <Search className="h-3 w-3" />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <button
-                                    onClick={() => setCategoriesSidebarOpen(true)}
-                                    className="flex items-center gap-2 text-base font-medium text-black hover:text-black transition-colors cursor-pointer text-left px-1"
-                                >
-                                    <Menu className="h-5 w-5" />
-                                    <span>Kategoriler</span>
-                                </button>
-                                {navigation.map((item) => (
-                                    <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        className="hover-underline cursor-pointer text-base font-medium text-black hover:text-black transition-colors duration-200 px-1"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                    {/* Mobile menu removed - use categories sidebar instead */}
                 </div>
             </header>
 
