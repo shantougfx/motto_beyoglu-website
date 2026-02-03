@@ -4,13 +4,13 @@ export default function ScrollingText() {
             <div
                 className="inline-block whitespace-nowrap"
                 style={{
-                    animation: 'marquee 60s linear infinite',
+                    animation: 'marquee 45s linear infinite',
                     animationFillMode: 'forwards',
                     transform: 'translateX(100%)'
                 }}
             >
-                <span className="text-xs font-normal px-12 uppercase tracking-wide font-sans inline-block">
-                    3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER • 3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER • 3000 TL ÜZERİ KARGO ÜCRETSİZ! • HAVALE ÖDEMELERİNDE %5 İNDİRİM! • KARGO ÜCRETİ 200 TL - ALICI ÖDER
+                <span className="text-xs font-normal px-8 uppercase tracking-wide font-sans inline-block">
+                    🎉 3000 TL ÜZERİ KARGO ÜCRETSİZ! • 💰 HAVALE ÖDEMELERİNDE %5 İNDİRİM! • 📦 KARGO ÜCRETİ 200 TL - ALICI ÖDER • 🎉 3000 TL ÜZERİ KARGO ÜCRETSİZ! • 💰 HAVALE ÖDEMELERİNDE %5 İNDİRİM! • 📦 KARGO ÜCRETİ 200 TL - ALICI ÖDER
                 </span>
             </div>
 
