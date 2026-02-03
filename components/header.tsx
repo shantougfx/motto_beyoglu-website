@@ -87,24 +87,22 @@ export function Header() {
                 </div>
             </div>
             <header className="bg-white sticky top-0 z-50 border-b border-gray-100" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
-                <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8">
-                    <div className="flex h-16 sm:h-18 items-center">
-                        <div className="flex items-center gap-3 sm:gap-6 min-w-0 flex-shrink-0">
+                <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+                    <div className="flex h-14 sm:h-16 lg:h-18 items-center justify-between">
+                        <div className="flex items-center gap-2 sm:gap-3 lg:gap-6 min-w-0 flex-shrink-0">
                             {/* Categories Button - Left Side */}
-                            <div className="lg:block">
-                                <button
-                                    onClick={() => setCategoriesSidebarOpen(true)}
-                                    className="flex items-center justify-center p-2 sm:p-3 text-black hover:bg-gray-50 rounded-md transition-all duration-200 cursor-pointer"
-                                >
-                                    <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                                    </svg>
-                                </button>
-                            </div>
+                            <button
+                                onClick={() => setCategoriesSidebarOpen(true)}
+                                className="flex items-center justify-center p-1.5 sm:p-2 lg:p-3 text-black hover:bg-gray-50 rounded-md transition-all duration-200 cursor-pointer"
+                            >
+                                <svg className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button>
 
-                            <Link href="/" className="flex items-center">
-                                <span className="text-2xl sm:text-3xl font-bold text-black">Motto</span>
-                                <span className="text-2xl sm:text-3xl font-light text-gray-600 ml-1">Beyoğlu</span>
+                            <Link href="/" className="flex items-center min-w-0">
+                                <span className="text-lg sm:text-xl lg:text-3xl font-bold text-black truncate">Motto</span>
+                                <span className="text-lg sm:text-xl lg:text-3xl font-light text-gray-600 ml-0.5 sm:ml-1 truncate">Beyoğlu</span>
                             </Link>
 
                             {/* Desktop Navigation Links */}
@@ -120,6 +118,8 @@ export function Header() {
                                 ))}
                             </div>
                         </div>
+
+                        {/* Desktop Search */}
                         <div className="w-60 sm:w-80 mx-4 sm:mx-8 hidden md:block">
                             <div className="relative">
                                 <Input
@@ -132,9 +132,11 @@ export function Header() {
                                 </Button>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4 sm:gap-6 min-w-0 flex-shrink-0">
-                            <Button variant="ghost" size="sm" className="lg:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                {mobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+
+                        {/* Mobile Menu Button */}
+                        <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 min-w-0 flex-shrink-0">
+                            <Button variant="ghost" size="sm" className="lg:hidden p-1.5 sm:p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                {mobileMenuOpen ? <X className="h-4 w-4 sm:h-5 sm:w-5" /> : <Menu className="h-4 w-4 sm:h-5 sm:w-5" />}
                             </Button>
                         </div>
                     </div>
