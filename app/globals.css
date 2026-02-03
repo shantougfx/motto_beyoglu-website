@@ -187,7 +187,7 @@ header {
 /* Scrolling text animation */
 @keyframes scroll {
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%);
   }
 
   100% {
@@ -200,7 +200,7 @@ header {
 }
 
 .animate-scroll-slow {
-  animation: scroll 80s linear infinite;
+  animation: scroll 60s linear infinite;
 }
 
 /* Hover underline animation */
