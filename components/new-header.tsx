@@ -161,10 +161,11 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
                                     <div
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-pink-50 rounded-lg text-left opacity-0 animate-fadeIn flex items-center gap-3 transform hover:scale-105 active:scale-100 active:bg-pink-100 transition-all duration-200"
+                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-pink-50 rounded-lg text-left opacity-0 animate-fadeIn flex items-center gap-3 transform hover:scale-105 active:scale-100 active:bg-pink-100"
                                         style={{
                                             animationDelay: '0.1s',
-                                            animationFillMode: 'both'
+                                            animationFillMode: 'both',
+                                            transition: 'background-color 0.2s ease, transform 0.2s ease'
                                         }}
                                     >
                                         ✨ YENİ SEZON
@@ -174,10 +175,11 @@ export default function NewHeader() {
                                         <div
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded-lg flex items-center justify-between opacity-0 animate-fadeIn transform hover:scale-105 active:scale-100 active:bg-gray-100 transition-all duration-200 group"
+                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded-lg flex items-center justify-between opacity-0 animate-fadeIn transform hover:scale-105 active:scale-100 active:bg-gray-100 group"
                                             style={{
                                                 animationDelay: `${0.2 + (index * 0.1)}s`,
-                                                animationFillMode: 'both'
+                                                animationFillMode: 'both',
+                                                transition: 'background-color 0.2s ease, transform 0.2s ease'
                                             }}
                                         >
                                             <span>{categoryName}</span>
