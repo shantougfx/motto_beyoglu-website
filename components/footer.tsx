@@ -62,11 +62,11 @@ export function Footer() {
               <p>Göksel Sk. No: 4A/A</p>
               <p>Yaman Evler Mah., Ümraniye</p>
               <p>İstanbul 34768</p>
-              <p>+90 (212) 123 45 67</p>
+              <p>+90 (534) 824 65 84</p>
             </div>
             <div className="flex items-center gap-4 mt-6">
               <a
-                href="https://wa.me/902121234567"
+                href="https://wa.me/905348246584"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-background/70 hover:text-background transition-colors"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import HeaderWorking from "@/components/header-working";
+import NewHeader from "@/components/new-header";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { FloatingContact } from "@/components/floating-contact";
@@ -45,7 +45,7 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <HeaderWorking />
+      <NewHeader />
 
       <main className="flex-1">
         {/* Page Header */}

@@ -16,7 +16,7 @@ export function FloatingContact() {
         <Instagram className="h-6 w-6" />
       </a>
       <a
-        href="https://wa.me/902121234567?text=Merhaba%2C%20ürünleriniz%20hakkında%20bilgi%20almak%20istiyorum."
+        href="https://wa.me/905348246584?text=Merhaba%2C%20ürünleriniz%20hakkında%20bilgi%20almak%20istiyorum."
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-12 h-12 rounded-full bg-[#25D366] text-white shadow-lg hover:scale-110 transition-transform"

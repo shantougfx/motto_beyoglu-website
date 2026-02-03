@@ -1,9 +1,9 @@
-import HeaderWorking from "@/components/header-working";
+import NewHeader from "@/components/new-header";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <HeaderWorking />
+      <NewHeader />
 
       <main className="flex-1 py-16 px-4">
         <div className="mx-auto max-w-4xl">

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import HeaderWorking from "@/components/header-working";
+import NewHeader from "@/components/new-header";
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col">
-      <HeaderWorking />
+      <NewHeader />
 
       <main className="flex-1 flex items-center justify-center py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

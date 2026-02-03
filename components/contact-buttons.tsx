@@ -17,7 +17,7 @@ export function ContactButtons({
     ? `Merhaba, "${productName}" ürünü hakkında bilgi almak istiyorum.`
     : "Merhaba, ürünleriniz hakkında bilgi almak istiyorum.";
 
-  const whatsappUrl = `https://wa.me/902121234567?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/905348246584?text=${encodeURIComponent(whatsappMessage)}`;
   const instagramUrl = "https://instagram.com/motto_beyoglu";
 
   if (variant === "large") {

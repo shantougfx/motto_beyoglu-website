@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import HeaderWorking from "@/components/header-working";
+import NewHeader from "@/components/new-header";
 import { Footer } from "@/components/footer";
 import { FloatingContact } from "@/components/floating-contact";
 import {
@@ -63,7 +63,7 @@ const faqs = [
 export default function HelpContactPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <HeaderWorking />
+      <NewHeader />
 
       <main className="flex-1">
         {/* Header */}
@@ -204,8 +204,8 @@ export default function HelpContactPage() {
                   </a>
                   <div className="mt-4">
                     <p className="font-medium text-black mb-1">Telefon:</p>
-                    <a href="tel:+902163286128" className="text-blue-600 hover:text-blue-800 hover:underline cursor-pointer">
-                      0216 328 61 28
+                    <a href="tel:+905348246584" className="text-blue-600 hover:text-blue-800 hover:underline cursor-pointer">
+                      0534 824 65 84
                     </a>
                   </div>
                 </div>
