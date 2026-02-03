@@ -262,7 +262,7 @@ export default function NewHeader() {
             {/* Search Overlay */}
             {
                 searchOpen && (
-                    <div className="fixed top-0 left-0 right-0 z-[9999] bg-white border-b border-gray-200 animate-slideDown" style={{ position: 'fixed', top: 0, zIndex: 9999 }}>
+                    <div className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 animate-slideDown" style={{ position: 'fixed', top: 0, zIndex: 99999 }}>
                         <div className="mx-auto max-w-7xl px-4 lg:px-6 py-3">
                             <div className="flex items-center gap-3">
                                 <input
