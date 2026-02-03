@@ -17,13 +17,12 @@ export const products: Product[] = [
     price: 1500,
     description:
       "Ananas desenli kimono tarzı ceket. Geniş kollu, rahat kesim ve şık tasarımı ile günlük kullanım için ideal. Kaliteli kumaş ve detaylı işçilik.",
-    image:
-      "/IMG_3425.jpeg",
+    image: "/IMG_3422.jpeg",
     category: "Üst Giyim",
     featured: true,
     createdAt: "2024-02-15",
     gallery: [
-      "/IMG_3425.jpeg",
+      "/IMG_3422.jpeg",
       "/IMG_3423.jpeg",
       "/IMG_3424.jpeg"
     ]
@@ -65,7 +64,7 @@ export const products: Product[] = [
     createdAt: "2024-02-01",
   },
   {
-    id: "4",
+    id: "13",
     name: "Blazer Ceket",
     price: 1899,
     description:
