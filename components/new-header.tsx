@@ -262,22 +262,22 @@ export default function NewHeader() {
             {/* Search Overlay */}
             {
                 searchOpen && (
-                    <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg animate-slideDown">
-                        <div className="mx-auto max-w-7xl px-4 lg:px-6 py-4">
-                            <div className="flex items-center gap-4">
+                    <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 animate-slideDown">
+                        <div className="mx-auto max-w-7xl px-4 lg:px-6 py-3">
+                            <div className="flex items-center gap-3">
                                 <input
                                     type="text"
                                     placeholder="Ürün ara..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
+                                    className="flex-1 px-4 py-2 text-sm border border-gray-300 rounded-full focus:outline-none focus:border-black transition-colors"
                                     autoFocus
                                 />
                                 <button
                                     onClick={() => setSearchOpen(false)}
-                                    className="flex items-center justify-center w-10 h-10 text-black hover:bg-gray-100 rounded-md transition-all duration-200"
+                                    className="flex items-center justify-center w-8 h-8 text-gray-500 hover:text-black transition-colors"
                                 >
-                                    <X className="h-5 w-5" />
+                                    <X className="h-4 w-4" />
                                 </button>
                             </div>
                         </div>
