@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { X, Search, Phone } from "lucide-react";
+import { X, Search, Phone, ChevronLeft } from "lucide-react";
 import ScrollingTextFixed from "./scrolling-text-fixed";
 
 const navigation = [
@@ -11,10 +11,38 @@ const navigation = [
     { name: "İletişim", href: "/iletisim" },
 ];
 
+const categories = {
+    "YENİ SEZON": [],
+    "ÜST GİYİM": ["Bluz", "Gömlek", "Kazak", "Hırka", "T-shirt"],
+    "ALT GİYİM": ["Pantolon", "Etek", "Şort", "Tayt", "Jean"],
+    "DIŞ GİYİM": ["Mont", "Kaban", "Ceket", "Yelek", "Trençkot"],
+    "ELBİSE": ["Günlük Elbise", "Abiye", "Tunik", "Elbise Takım"]
+};
+
 export default function NewHeader() {
     const [categoriesSidebarOpen, setCategoriesSidebarOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
+
+    const handleCategoryClick = (categoryName: string) => {
+        if (categories[categoryName as keyof typeof categories].length > 0) {
+            setActiveSubcategory(categoryName);
+        } else {
+            // For YENİ SEZON or categories without subcategories, close sidebar and navigate
+            setCategoriesSidebarOpen(false);
+            setActiveSubcategory(null);
+        }
+    };
+
+    const handleBackToCategories = () => {
+        setActiveSubcategory(null);
+    };
+
+    const handleSubcategoryClick = () => {
+        setCategoriesSidebarOpen(false);
+        setActiveSubcategory(null);
+    };
 
     return (
         <>
@@ -104,46 +132,70 @@ export default function NewHeader() {
                 <div className="fixed inset-0 z-50">
                     <div
                         className="fixed inset-0 bg-black bg-opacity-30 transition-opacity duration-300"
-                        onClick={() => setCategoriesSidebarOpen(false)}
+                        onClick={() => {
+                            setCategoriesSidebarOpen(false);
+                            setActiveSubcategory(null);
+                        }}
                     />
                     <div className="fixed top-0 left-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out animate-slideInLeft">
-                        <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                            <h3 className="text-lg font-semibold text-black">Kategoriler</h3>
-                            <button onClick={() => setCategoriesSidebarOpen(false)} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
-                                <X className="w-5 h-5" />
-                            </button>
-                        </div>
-                        <div className="p-4 space-y-2">
-                            <div className="py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-gray-50 rounded transition-colors">YENİ SEZON</div>
+                        {!activeSubcategory ? (
+                            // Main Categories View
+                            <>
+                                <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                                    <h3 className="text-lg font-semibold text-black">Kategoriler</h3>
+                                    <button onClick={() => setCategoriesSidebarOpen(false)} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
+                                        <X className="w-5 h-5" />
+                                    </button>
+                                </div>
+                                <div className="p-4 space-y-2">
+                                    <button
+                                        onClick={() => handleCategoryClick("YENİ SEZON")}
+                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left"
+                                    >
+                                        YENİ SEZON
+                                    </button>
 
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
-                                <span>ÜST GİYİM</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
-                                <span>ALT GİYİM</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
-                                <span>DIŞ GİYİM</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
-                                <span>ELBİSE</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </div>
+                                    {Object.entries(categories).slice(1).map(([categoryName, subcategories]) => (
+                                        <button
+                                            key={categoryName}
+                                            onClick={() => handleCategoryClick(categoryName)}
+                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between"
+                                        >
+                                            <span>{categoryName}</span>
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+                                    ))}
+                                </div>
+                            </>
+                        ) : (
+                            // Subcategories View
+                            <>
+                                <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                                    <div className="flex items-center gap-2">
+                                        <button onClick={handleBackToCategories} className="p-1 hover:bg-gray-200 rounded transition-colors">
+                                            <ChevronLeft className="w-5 h-5" />
+                                        </button>
+                                        <h3 className="text-lg font-semibold text-black">{activeSubcategory}</h3>
+                                    </div>
+                                    <button onClick={() => setCategoriesSidebarOpen(false)} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
+                                        <X className="w-5 h-5" />
+                                    </button>
+                                </div>
+                                <div className="p-4 space-y-2 animate-fadeIn">
+                                    {categories[activeSubcategory as keyof typeof categories].map((subcategory) => (
+                                        <button
+                                            key={subcategory}
+                                            onClick={handleSubcategoryClick}
+                                            className="w-full py-3 px-4 text-sm text-gray-600 cursor-pointer hover:bg-gray-50 rounded transition-colors text-left"
+                                        >
+                                            {subcategory}
+                                        </button>
+                                    ))}
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
             )}
