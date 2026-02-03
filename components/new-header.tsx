@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { X, Search, Phone } from "lucide-react";
-import ScrollingText from "./scrolling-text";
+import ScrollingTextFixed from "./scrolling-text-fixed";
 
 const navigation = [
     { name: "Ürünler", href: "/urunler" },
@@ -18,7 +18,7 @@ export default function NewHeader() {
 
     return (
         <>
-            <ScrollingText />
+            <ScrollingTextFixed />
 
             {/* Contact Bar - Desktop Only */}
             <div className="hidden md:block bg-gray-50 py-2 border-b border-gray-200">
