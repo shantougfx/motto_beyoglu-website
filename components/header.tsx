@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { X, Search, Phone, ShoppingBag, User } from "lucide-react";
+import { useState, useEffect } from "react";
+import { X, Search, Phone } from "lucide-react";
 import { ScrollingText } from "./scrolling-text";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -17,24 +17,39 @@ export function Header() {
     const [categoriesSidebarOpen, setCategoriesSidebarOpen] = useState(false);
     const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
     const [showSubcategoryView, setShowSubcategoryView] = useState(false);
+    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    // ADL style header auto-hide on scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down & past 100px
+                setIsHeaderVisible(false);
+            } else {
+                // Scrolling up
+                setIsHeaderVisible(true);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
 
     return (
         <>
             <ScrollingText />
-            {/* Contact Bar - Compact Mobile Design */}
-            <div className="bg-gray-50 py-1 sm:py-2 border-b border-gray-200 sticky top-0 z-40">
-                <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
-                    <div className="flex items-center justify-between text-xs font-normal text-black">
-                        {/* Mobile Contact - Minimal */}
-                        <div className="flex items-center gap-2 md:hidden">
-                            <a href="tel:+905348246584" className="flex items-center gap-1 hover:text-black transition-colors">
-                                <Phone className="h-3 w-3" />
-                                <span className="text-xs">0534 824 65 84</span>
-                            </a>
-                        </div>
 
+            {/* Contact Bar - Desktop Only */}
+            <div className="hidden md:block bg-gray-50 py-2 border-b border-gray-200">
+                <div className="mx-auto max-w-7xl px-4 lg:px-6">
+                    <div className="flex items-center justify-between text-xs font-normal text-black">
                         {/* Desktop Contact */}
-                        <div className="hidden md:flex items-center gap-3 text-black">
+                        <div className="flex items-center gap-3 text-black">
                             <a href="tel:+905348246584" className="flex items-center gap-1 hover:text-black transition-colors">
                                 <Phone className="h-3 w-3" />
                                 <span className="text-xs">0534 824 65 84</span>
@@ -42,12 +57,8 @@ export function Header() {
                             <a
                                 href="mailto:info@mottobeyoglu.com"
                                 onClick={(e) => {
-                                    if (window.innerWidth <= 768) {
-                                        return;
-                                    } else {
-                                        e.preventDefault();
-                                        window.open('https://mail.google.com/mail/?view=cm&fs=1&to=info@mottobeyoglu.com', '_blank');
-                                    }
+                                    e.preventDefault();
+                                    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=info@mottobeyoglu.com', '_blank');
                                 }}
                                 className="flex items-center gap-1 hover:text-black transition-colors"
                             >
@@ -71,10 +82,10 @@ export function Header() {
                                             window.open('maps://?q=Motto+Beyoğlu+Alemdar+Sokak+Göksel+Sk+4A/A+Ümraniye+İstanbul', '_blank');
                                         }, 500);
                                     } else {
-                                        window.open('https://www.google.com/maps?hl=tr&gl=tr&um=1&ie=UTF-4&fb=1&sa=X&ftid=0x14cac8f0ad361bfb:0xe4c7d6331f5cd545', '_blank');
+                                        window.open('https://www.google.com/maps?hl=tr&gl=tr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x14cac8f0ad361bfb:0xe4c7d6331f5cd545', '_blank');
                                     }
                                 }}
-                                className="hidden md:flex items-center gap-1 hover:text-black transition-colors"
+                                className="flex items-center gap-1 hover:text-black transition-colors"
                             >
                                 <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
@@ -85,7 +96,7 @@ export function Header() {
                                 <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                 </svg>
-                                <span className="hidden sm:inline">Yardım</span>
+                                <span>Yardım</span>
                             </a>
                             <a href="https://instagram.com/motto_beyoglu" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 transition-colors">
                                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
@@ -97,8 +108,12 @@ export function Header() {
                 </div>
             </div>
 
-            {/* Main Header - ADL Style Mobile */}
-            <header className="bg-white sticky top-0 left-0 right-0 z-50 border-b border-gray-200" style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}>
+            {/* Main Header - ADL Style with Auto Hide */}
+            <header
+                className={`bg-white fixed top-0 left-0 right-0 z-50 border-b border-gray-200 transition-transform duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+                    }`}
+                style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}
+            >
                 <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
                     <div className="flex h-14 sm:h-16 lg:h-18 items-center justify-between">
                         {/* Left Side - Categories + Logo */}
@@ -136,18 +151,24 @@ export function Header() {
                         {/* Right Side - Icons */}
                         <div className="flex items-center gap-1 sm:gap-2">
                             {/* Mobile Search Button */}
-                            <button className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200">
+                            <button
+                                onClick={() => {
+                                    // Simple search functionality - you can enhance this
+                                    const searchTerm = prompt('Ürün ara:');
+                                    if (searchTerm) {
+                                        window.location.href = `/urunler?search=${encodeURIComponent(searchTerm)}`;
+                                    }
+                                }}
+                                className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200"
+                            >
                                 <Search className="h-5 w-5" />
                             </button>
 
-                            {/* Mobile User Button */}
+                            {/* Mobile Help Button */}
                             <Link href="/iletisim" className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200">
-                                <User className="h-5 w-5" />
-                            </Link>
-
-                            {/* Mobile Bag Button */}
-                            <Link href="/iletisim" className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200 relative">
-                                <ShoppingBag className="h-5 w-5" />
+                                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
                             </Link>
 
                             {/* Desktop Search */}
@@ -157,20 +178,36 @@ export function Header() {
                                         type="text"
                                         placeholder="Ürün ara..."
                                         className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black text-sm bg-white"
+                                        onKeyPress={(e) => {
+                                            if (e.key === 'Enter') {
+                                                const target = e.target as HTMLInputElement;
+                                                if (target.value.trim()) {
+                                                    window.location.href = `/urunler?search=${encodeURIComponent(target.value)}`;
+                                                }
+                                            }
+                                        }}
                                     />
-                                    <Button size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 rounded-md bg-black hover:bg-gray-800 text-white p-0">
+                                    <Button
+                                        size="sm"
+                                        className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 rounded-md bg-black hover:bg-gray-800 text-white p-0"
+                                        onClick={() => {
+                                            const input = document.querySelector('input[placeholder="Ürün ara..."]') as HTMLInputElement;
+                                            if (input && input.value.trim()) {
+                                                window.location.href = `/urunler?search=${encodeURIComponent(input.value)}`;
+                                            }
+                                        }}
+                                    >
                                         <Search className="h-4 w-4" />
                                     </Button>
                                 </div>
                             </div>
 
-                            {/* Desktop User & Bag */}
+                            {/* Desktop Help Button */}
                             <div className="hidden lg:flex items-center gap-2 ml-4">
                                 <Link href="/iletisim" className="flex items-center justify-center w-9 h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200">
-                                    <User className="h-5 w-5" />
-                                </Link>
-                                <Link href="/iletisim" className="flex items-center justify-center w-9 h-9 text-black hover:bg-gray-100 rounded-md transition-all duration-200 relative">
-                                    <ShoppingBag className="h-5 w-5" />
+                                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                    </svg>
                                 </Link>
                             </div>
                         </div>

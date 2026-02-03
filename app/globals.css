@@ -141,19 +141,14 @@
     font-family: 'Comfortaa', sans-serif;
     min-width: 320px;
     /* Minimum mobile width */
+    padding-top: 0;
+    /* Remove padding since header auto-hides */
   }
 
   /* Prevent horizontal scroll on mobile */
   html,
   body {
     overflow-x: hidden;
-  }
-
-  /* Ensure header stays fixed on mobile */
-  header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 50 !important;
   }
 
   /* Mobile viewport fix */
@@ -169,6 +164,28 @@
       font-size: 16px;
     }
   }
+}
+
+/* Ensure header stays fixed on mobile */
+header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+}
+
+/* Mobile viewport fix */
+@media (max-width: 768px) {
+  body {
+    padding-top: 0;
+  }
+
+  /* Prevent zoom on input focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
 }
 
 /* Scrolling text animation */
