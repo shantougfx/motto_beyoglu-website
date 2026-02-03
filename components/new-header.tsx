@@ -102,20 +102,47 @@ export default function NewHeader() {
             {/* Categories Sidebar */}
             {categoriesSidebarOpen && (
                 <div className="fixed inset-0 z-50">
-                    <div className="fixed inset-0 bg-black bg-opacity-30" onClick={() => setCategoriesSidebarOpen(false)} />
-                    <div className="fixed top-0 left-0 h-full w-80 bg-white shadow-xl">
+                    <div
+                        className="fixed inset-0 bg-black bg-opacity-30 transition-opacity duration-300"
+                        onClick={() => setCategoriesSidebarOpen(false)}
+                    />
+                    <div className="fixed top-0 left-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out animate-slideInLeft">
                         <div className="flex items-center justify-between p-4 border-b border-gray-200">
                             <h3 className="text-lg font-semibold text-black">Kategoriler</h3>
-                            <button onClick={() => setCategoriesSidebarOpen(false)} className="p-2 hover:bg-gray-200 rounded-lg">
+                            <button onClick={() => setCategoriesSidebarOpen(false)} className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
                                 <X className="w-5 h-5" />
                             </button>
                         </div>
                         <div className="p-4 space-y-2">
-                            <div className="py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer">YENİ SEZON</div>
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded">ÜST GİYİM</div>
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded">ALT GİYİM</div>
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded">DIŞ GİYİM</div>
-                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded">ELBİSE</div>
+                            <div className="py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-gray-50 rounded transition-colors">YENİ SEZON</div>
+
+                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
+                                <span>ÜST GİYİM</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+
+                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
+                                <span>ALT GİYİM</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+
+                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
+                                <span>DIŞ GİYİM</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+
+                            <div className="py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded transition-colors flex items-center justify-between">
+                                <span>ELBİSE</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,3 +166,16 @@ export default function NewHeader() {
         </>
     );
 }
+<style jsx>{`
+                @keyframes slideInLeft {
+                    from {
+                        transform: translateX(-100%);
+                    }
+                    to {
+                        transform: translateX(0);
+                    }
+                }
+                .animate-slideInLeft {
+                    animation: slideInLeft 0.3s ease-out;
+                }
+            `}</style>

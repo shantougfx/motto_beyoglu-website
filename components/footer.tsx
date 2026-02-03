@@ -4,7 +4,7 @@ import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-gray-900 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
@@ -14,43 +14,43 @@ export function Footer() {
                 Motto Beyoğlu
               </span>
             </Link>
-            <p className="mt-4 text-sm text-background/70 leading-relaxed max-w-xs">
+            <p className="mt-4 text-sm text-gray-300 leading-relaxed max-w-xs">
               Ümraniye'de, ihracat fazlası seçili ürünler. Sınırlı
               stok, özel fiyatlar.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Navigation */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
               Hızlı Bağlantılar
             </h3>
-            <ul className="space-y-3">
-              <li>
+            <div className="space-y-3">
+              <div>
                 <Link
                   href="/urunler"
-                  className="text-sm text-background/70 hover:text-background transition-colors"
+                  className="text-sm text-gray-300 hover:text-white transition-colors"
                 >
                   Ürünler
                 </Link>
-              </li>
-              <li>
+              </div>
+              <div>
                 <Link
                   href="/hakkimizda"
-                  className="text-sm text-background/70 hover:text-background transition-colors"
+                  className="text-sm text-gray-300 hover:text-white transition-colors"
                 >
                   Hakkımızda
                 </Link>
-              </li>
-              <li>
+              </div>
+              <div>
                 <Link
                   href="/iletisim"
-                  className="text-sm text-background/70 hover:text-background transition-colors"
+                  className="text-sm text-gray-300 hover:text-white transition-colors"
                 >
                   İletişim
                 </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
 
           {/* Contact */}
@@ -58,7 +58,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
               İletişim
             </h3>
-            <div className="space-y-3 text-sm text-background/70">
+            <div className="space-y-3 text-sm text-gray-300">
               <p>Göksel Sk. No: 4A/A</p>
               <p>Yaman Evler Mah., Ümraniye</p>
               <p>İstanbul 34768</p>
@@ -69,7 +69,7 @@ export function Footer() {
                 href="https://wa.me/905348246584"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-background/70 hover:text-background transition-colors"
+                className="text-gray-300 hover:text-white transition-colors"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="h-5 w-5" />
@@ -78,7 +78,7 @@ export function Footer() {
                 href="https://instagram.com/motto_beyoglu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-background/70 hover:text-background transition-colors"
+                className="text-gray-300 hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -87,11 +87,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-background/20">
-          <p className="text-center text-xs text-background/50">
+        <div className="mt-12 pt-8 border-t border-gray-700">
+          <p className="text-center text-xs text-gray-400">
             © {new Date().getFullYear()} Motto Beyoğlu. Tüm hakları saklıdır.
           </p>
-          <p className="text-center text-xs text-background/40 mt-2">
+          <p className="text-center text-xs text-gray-500 mt-2">
             Bu site bir e-ticaret sitesi değildir. Sadece ürün tanıtımı ve
             iletişim yönlendirme amaçlıdır.
           </p>
