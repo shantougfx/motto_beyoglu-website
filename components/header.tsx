@@ -27,17 +27,17 @@ export function Header() {
                     <div className="flex items-center justify-between text-xs font-normal text-black">
                         {/* Mobile Contact - Minimal */}
                         <div className="flex items-center gap-2 md:hidden">
-                            <a href="tel:+902163286128" className="flex items-center gap-1 hover:text-black transition-colors">
+                            <a href="tel:+905348246584" className="flex items-center gap-1 hover:text-black transition-colors">
                                 <Phone className="h-3 w-3" />
-                                <span className="text-xs">0216 328 61 28</span>
+                                <span className="text-xs">0534 824 65 84</span>
                             </a>
                         </div>
 
                         {/* Desktop Contact */}
                         <div className="hidden md:flex items-center gap-3 text-black">
-                            <a href="tel:+902163286128" className="flex items-center gap-1 hover:text-black transition-colors">
+                            <a href="tel:+905348246584" className="flex items-center gap-1 hover:text-black transition-colors">
                                 <Phone className="h-3 w-3" />
-                                <span className="text-xs">0216 328 61 28</span>
+                                <span className="text-xs">0534 824 65 84</span>
                             </a>
                             <a
                                 href="mailto:info@mottobeyoglu.com"
@@ -80,12 +80,6 @@ export function Header() {
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                 </svg>
                                 <span className="text-xs">Mağaza</span>
-                            </a>
-                            <a href="/iletisim" className="hover:text-black transition-colors text-xs flex items-center gap-1">
-                                <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span className="hidden sm:inline">Yardım</span>
                             </a>
                             <a href="https://instagram.com/motto_beyoglu" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 transition-colors">
                                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
@@ -139,10 +133,10 @@ export function Header() {
                                 <Search className="h-4 w-4" />
                             </button>
 
-                            {/* Mobile Contact Button */}
+                            {/* Mobile Help Button */}
                             <Link href="/iletisim" className="md:hidden flex items-center justify-center p-1.5 text-black hover:bg-gray-50 rounded-md transition-all duration-200">
                                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </Link>
 
