@@ -161,16 +161,8 @@ export default function NewHeader() {
                                 <div className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-80px)]">
                                     <button
                                         onClick={() => handleCategoryClick("YENİ SEZON")}
-                                        className="w-full py-3 px-4 text-sm font-bold text-pink-500 cursor-pointer hover:bg-pink-50 rounded-lg transition-all duration-200 text-left transform hover:scale-105 opacity-0 animate-pulse focus:outline-none focus:text-pink-500 focus:font-bold"
-                                        style={{ fontWeight: 'bold' }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.fontWeight = 'bold';
-                                            e.currentTarget.style.color = 'rgb(236, 64, 122)';
-                                        }}
-                                        onBlur={(e) => {
-                                            e.currentTarget.style.fontWeight = 'bold';
-                                            e.currentTarget.style.color = 'rgb(236, 64, 122)';
-                                        }}
+                                        className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-pink-50 rounded-lg transition-colors duration-200 text-left transform hover:scale-105 opacity-0 animate-pulse"
+                                        style={{ color: '#EC407A', fontWeight: '700' }}
                                         style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: '0.1s' }}
                                     >
                                         ✨ YENİ SEZON
@@ -180,16 +172,8 @@ export default function NewHeader() {
                                         <button
                                             key={categoryName}
                                             onClick={() => handleCategoryClick(categoryName)}
-                                            className="w-full py-3 px-4 text-sm text-black cursor-pointer hover:bg-gray-50 rounded-lg transition-all duration-200 flex items-center justify-between group transform hover:scale-105 opacity-0 focus:outline-none focus:text-black focus:font-normal"
-                                            style={{ fontWeight: 'normal' }}
-                                            onMouseLeave={(e) => {
-                                                e.currentTarget.style.fontWeight = 'normal';
-                                                e.currentTarget.style.color = 'rgb(0, 0, 0)';
-                                            }}
-                                            onBlur={(e) => {
-                                                e.currentTarget.style.fontWeight = 'normal';
-                                                e.currentTarget.style.color = 'rgb(0, 0, 0)';
-                                            }}
+                                            className="w-full py-3 px-4 text-sm cursor-pointer hover:bg-gray-50 rounded-lg transition-colors duration-200 flex items-center justify-between group transform hover:scale-105 opacity-0"
+                                            style={{ color: '#000000', fontWeight: '400' }}
                                             style={{ animation: 'fadeInUp 0.3s ease-out forwards', animationDelay: `${0.2 + (index * 0.1)}s` }}
                                         >
                                             <span>{categoryName}</span>
