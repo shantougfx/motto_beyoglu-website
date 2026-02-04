@@ -112,11 +112,20 @@ export default function NewHeader() {
                                 </svg>
                             </button>
 
-                            <Link href="/" className="flex items-center cursor-pointer hover:opacity-90 transition-opacity">
+                            <Link
+                                href="/"
+                                className="flex items-center cursor-pointer hover:opacity-90 transition-opacity"
+                                onClick={(e) => {
+                                    // Mobile için force navigation
+                                    e.preventDefault();
+                                    window.location.href = '/';
+                                }}
+                                onTouchStart={() => { }}
+                            >
                                 <img
                                     src="/logo.png"
                                     alt="Motto Beyoğlu"
-                                    className="h-40 sm:h-44 md:h-48 lg:h-56 w-auto cursor-pointer"
+                                    className="h-40 sm:h-44 md:h-48 lg:h-56 w-auto cursor-pointer touch-manipulation"
                                     style={{ imageRendering: 'crisp-edges', imageRendering: '-webkit-optimize-contrast' }}
                                 />
                             </Link>
