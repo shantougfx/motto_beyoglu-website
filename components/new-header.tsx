@@ -102,7 +102,7 @@ export default function NewHeader() {
                 <div className="mx-auto max-w-7xl px-4 lg:px-6">
                     <div className="flex h-16 items-center justify-between">
                         {/* Left Side - Hamburger + Logo */}
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2">
                             <button
                                 onClick={handleOpenSidebar}
                                 className="flex items-center justify-center w-8 h-8 text-black hover:bg-gray-100 rounded-md transition-all duration-200"
@@ -116,7 +116,7 @@ export default function NewHeader() {
                                 <img
                                     src="/motto_beyolgu.png"
                                     alt="Motto Beyoğlu"
-                                    className="h-32 w-auto"
+                                    className="h-40 w-auto"
                                 />
                             </Link>
 
