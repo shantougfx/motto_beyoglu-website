@@ -116,7 +116,8 @@ export default function NewHeader() {
                                 <img
                                     src="/logo.png"
                                     alt="Motto Beyoğlu"
-                                    className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto"
+                                    className="h-40 sm:h-44 md:h-48 lg:h-56 w-auto"
+                                    style={{ imageRendering: 'crisp-edges', imageRendering: '-webkit-optimize-contrast' }}
                                 />
                             </Link>
 
