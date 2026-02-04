@@ -112,11 +112,11 @@ export default function NewHeader() {
                                 </svg>
                             </button>
 
-                            <Link href="/" className="flex items-center">
+                            <Link href="/" className="flex items-center cursor-pointer hover:opacity-90 transition-opacity">
                                 <img
                                     src="/logo.png"
                                     alt="Motto Beyoğlu"
-                                    className="h-40 sm:h-44 md:h-48 lg:h-56 w-auto"
+                                    className="h-40 sm:h-44 md:h-48 lg:h-56 w-auto cursor-pointer"
                                     style={{ imageRendering: 'crisp-edges', imageRendering: '-webkit-optimize-contrast' }}
                                 />
                             </Link>
