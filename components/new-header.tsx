@@ -114,7 +114,7 @@ export default function NewHeader() {
 
                             <Link href="/" className="flex items-center">
                                 <img
-                                    src="/motto-beyoglu-logo.png"
+                                    src="/motto_beyolgu.png"
                                     alt="Motto Beyoğlu"
                                     className="h-24 w-auto"
                                 />
