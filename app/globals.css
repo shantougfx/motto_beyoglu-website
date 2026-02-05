@@ -142,8 +142,10 @@
     font-family: 'Comfortaa', sans-serif;
     min-width: 320px;
     /* Minimum mobile width */
-    padding-top: 0;
-    /* Remove padding since header auto-hides */
+    padding-top: 128px;
+    /* Banner + Header height */
+    /* Header space */
+    /* Header height için space */
   }
 
   /* Prevent horizontal scroll on mobile */
@@ -178,11 +180,70 @@
   }
 }
 
-/* Ensure header stays fixed on mobile */
+/* Fast marquee animation like yokedwear.com */
+@keyframes marquee-fast {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-fast {
+  animation: marquee-fast 25s linear infinite;
+  display: inline-block;
+}
+
+/* Mobile speed for marquee - Very fast, starts from right */
+@media (max-width: 768px) {
+  .animate-marquee-fast {
+    animation: marquee-mobile 3s linear infinite !important;
+    font-size: 12px;
+  }
+}
+
+/* Mobile specific marquee animation */
+@keyframes marquee-mobile {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Banner text animation */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Dynamic header positioning */
 header {
-  position: sticky !important;
-  top: 0 !important;
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
   z-index: 50 !important;
+  width: 100% !important;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Scrolling text animation - Force override */
@@ -197,12 +258,12 @@ header {
 }
 
 .animate-scroll {
-  animation: scroll 40s linear infinite !important;
+  animation: scroll 8s linear infinite !important;
   display: inline-block !important;
 }
 
 .animate-scroll-slow {
-  animation: scroll 60s linear infinite !important;
+  animation: scroll 12s linear infinite !important;
   display: inline-block !important;
   white-space: nowrap !important;
 }

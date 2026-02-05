@@ -4,17 +4,17 @@ import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 
 export function Footer() {
   return (
-    <footer className="bg-transparent bg-black bg-opacity-20 text-white">
+    <footer className="bg-background text-foreground border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-semibold tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <span className="text-2xl font-semibold tracking-tight text-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Motto Beyoğlu
               </span>
             </Link>
-            <p className="mt-4 text-sm text-gray-300 leading-relaxed max-w-xs">
+            <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Ümraniye'de, ihracat fazlası seçili ürünler. Sınırlı
               stok, özel fiyatlar.
             </p>
@@ -22,14 +22,14 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-foreground">
               Hızlı Bağlantılar
             </h3>
             <div className="space-y-3">
               <div>
                 <Link
                   href="/urunler"
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Ürünler
                 </Link>
@@ -37,7 +37,7 @@ export function Footer() {
               <div>
                 <Link
                   href="/hakkimizda"
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Hakkımızda
                 </Link>
@@ -45,7 +45,7 @@ export function Footer() {
               <div>
                 <Link
                   href="/iletisim"
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   İletişim
                 </Link>
@@ -55,10 +55,10 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-foreground">
               İletişim
             </h3>
-            <div className="space-y-3 text-sm text-gray-300">
+            <div className="space-y-3 text-sm text-muted-foreground">
               <p>Göksel Sk. No: 4A/A</p>
               <p>Yaman Evler Mah., Ümraniye</p>
               <p>İstanbul 34768</p>
@@ -69,7 +69,7 @@ export function Footer() {
                 href="https://wa.me/905348246584"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="h-5 w-5" />
@@ -78,7 +78,7 @@ export function Footer() {
                 href="https://instagram.com/motto_beyoglu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -87,11 +87,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <p className="text-center text-xs text-gray-400">
+        <div className="mt-12 pt-8 border-t border-border">
+          <p className="text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} Motto Beyoğlu. Tüm hakları saklıdır.
           </p>
-          <p className="text-center text-xs text-gray-500 mt-2">
+          <p className="text-center text-xs text-muted-foreground mt-2">
             Bu site bir e-ticaret sitesi değildir. Sadece ürün tanıtımı ve
             iletişim yönlendirme amaçlıdır.
           </p>
