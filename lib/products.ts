@@ -11,6 +11,98 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  // Yeni Ürünler - Dükkan
+  {
+    id: "yeni-1",
+    name: "ÜRÜN 1",
+    price: 1200,
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    image: "/urunler/urun1/1.jpeg",
+    category: "Üst Giyim",
+    featured: true,
+    createdAt: "2024-02-20",
+    gallery: [
+      "/urunler/urun1/1.jpeg",
+      "/urunler/urun1/2.jpeg",
+      "/urunler/urun1/3.jpeg"
+    ]
+  },
+  {
+    id: "yeni-2",
+    name: "ÜRÜN 2",
+    price: 1400,
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    image: "/urunler/urun2/1.jpeg",
+    category: "Alt Giyim",
+    featured: true,
+    createdAt: "2024-02-20",
+    gallery: [
+      "/urunler/urun2/1.jpeg",
+      "/urunler/urun2/2.jpeg",
+      "/urunler/urun2/3.jpeg"
+    ]
+  },
+  {
+    id: "yeni-3",
+    name: "ÜRÜN 3",
+    price: 1600,
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    image: "/urunler/urun3/1.jpeg",
+    category: "Dış Giyim",
+    featured: true,
+    createdAt: "2024-02-20",
+    gallery: [
+      "/urunler/urun3/1.jpeg",
+      "/urunler/urun3/2.jpeg",
+      "/urunler/urun3/3.jpeg"
+    ]
+  },
+  {
+    id: "yeni-4",
+    name: "ÜRÜN 4",
+    price: 1800,
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    image: "/urunler/urun4/1.jpeg",
+    category: "Üst Giyim",
+    featured: true,
+    createdAt: "2024-02-20",
+    gallery: [
+      "/urunler/urun4/1.jpeg",
+      "/urunler/urun4/2.jpeg",
+      "/urunler/urun4/3.jpeg"
+    ]
+  },
+  {
+    id: "yeni-5",
+    name: "ÜRÜN 5",
+    price: 2000,
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    image: "/urunler/urun5/1.jpeg",
+    category: "Alt Giyim",
+    featured: true,
+    createdAt: "2024-02-20",
+    gallery: [
+      "/urunler/urun5/1.jpeg",
+      "/urunler/urun5/2.jpeg",
+      "/urunler/urun5/3.jpeg"
+    ]
+  },
+  {
+    id: "yeni-6",
+    name: "ÜRÜN 6",
+    price: 2200,
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    image: "/urunler/urun6/1.jpeg",
+    category: "Dış Giyim",
+    featured: true,
+    createdAt: "2024-02-20",
+    gallery: [
+      "/urunler/urun6/1.jpeg",
+      "/urunler/urun6/2.jpeg",
+      "/urunler/urun6/3.jpeg"
+    ]
+  },
+  // Eski Ürünler
   {
     id: "1",
     name: "ZARA İŞLEME BOMBER CEKET",
@@ -19,7 +111,7 @@ export const products: Product[] = [
       "ZARA marka işlemeli bomber ceket. Geniş kollu, rahat kesim ve şık tasarımı ile günlük kullanım için ideal. Kaliteli kumaş ve detaylı işçilik.",
     image: "/zarabombermain.jpeg",
     category: "Üst Giyim",
-    featured: true,
+    featured: false,
     createdAt: "2024-02-15",
     gallery: [
       "/zarabombermain.jpeg",
