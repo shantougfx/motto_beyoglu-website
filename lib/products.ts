@@ -11,12 +11,12 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  // Yeni Ürünler - Dükkan
+  // Yeni Ürünler - Dükkan (Kategorilere göre düzenlenmiş)
   {
     id: "yeni-1",
-    name: "ÜRÜN 1",
+    name: "Krem Sweatshirt",
     price: 1200,
-    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    description: "Rahat kesim, kaliteli pamuklu sweatshirt. Günlük kullanım için ideal.",
     image: "/urunler/urun1/1.jpeg",
     category: "Üst Giyim",
     featured: true,
@@ -29,9 +29,9 @@ export const products: Product[] = [
   },
   {
     id: "yeni-2",
-    name: "ÜRÜN 2",
+    name: "Siyah Pantolon",
     price: 1400,
-    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    description: "Şık kesim, rahat kumaş. Her kombine uyum sağlar.",
     image: "/urunler/urun2/1.jpeg",
     category: "Alt Giyim",
     featured: true,
@@ -44,9 +44,9 @@ export const products: Product[] = [
   },
   {
     id: "yeni-3",
-    name: "ÜRÜN 3",
+    name: "Kahverengi Ceket",
     price: 1600,
-    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    description: "Klasik kesim, kaliteli kumaş. Şık görünüm için ideal.",
     image: "/urunler/urun3/1.jpeg",
     category: "Dış Giyim",
     featured: true,
@@ -59,9 +59,9 @@ export const products: Product[] = [
   },
   {
     id: "yeni-4",
-    name: "ÜRÜN 4",
+    name: "Beyaz Gömlek",
     price: 1800,
-    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    description: "Klasik beyaz gömlek, her gardırobun olmazsa olmazı.",
     image: "/urunler/urun4/1.jpeg",
     category: "Üst Giyim",
     featured: true,
@@ -74,9 +74,9 @@ export const products: Product[] = [
   },
   {
     id: "yeni-5",
-    name: "ÜRÜN 5",
+    name: "Jean Pantolon",
     price: 2000,
-    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    description: "Kaliteli denim kumaş, modern kesim jean pantolon.",
     image: "/urunler/urun5/1.jpeg",
     category: "Alt Giyim",
     featured: true,
@@ -89,9 +89,9 @@ export const products: Product[] = [
   },
   {
     id: "yeni-6",
-    name: "ÜRÜN 6",
+    name: "Siyah Mont",
     price: 2200,
-    description: "Kaliteli ürün açıklaması buraya gelecek.",
+    description: "Kış için ideal, sıcak tutan kaliteli mont.",
     image: "/urunler/urun6/1.jpeg",
     category: "Dış Giyim",
     featured: true,

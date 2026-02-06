@@ -64,7 +64,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
     <div className="min-h-screen flex flex-col">
       <NewHeader />
 
-      <main className="flex-1">
+      <main className="flex-1 pt-32 md:pt-24">
         {/* Breadcrumb */}
         <div className="border-b border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">

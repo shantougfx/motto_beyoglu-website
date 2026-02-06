@@ -94,7 +94,7 @@ export default function NewHeader() {
     return (
         <>
             {/* Kargo Bedava Banner - EN ÜSTTE, animasyonlu yazı değişimi */}
-            <div className="bg-black text-white py-3 w-full text-center fixed top-0 left-0 right-0 z-40 overflow-hidden">
+            <div className="bg-black text-white py-3 w-full text-center fixed top-0 left-0 right-0 z-[100] overflow-hidden">
                 <div className="relative h-6">
                     <span
                         key={currentTextIndex}
@@ -106,7 +106,7 @@ export default function NewHeader() {
             </div>
 
             {/* Fixed Header - Banner'ın altında başlar, scroll edince üste çıkar */}
-            <header className={`bg-white fixed left-0 right-0 z-50 border-b border-gray-200 w-full shadow-sm transition-all duration-300 ${isScrolled ? 'top-0' : 'top-12'}`}>
+            <header className={`bg-white fixed left-0 right-0 z-[90] border-b border-gray-200 w-full shadow-sm transition-all duration-300 ${isScrolled ? 'top-0' : 'top-12'}`}>
                 {/* Contact Bar - Desktop Only */}
                 <div className="hidden md:block bg-gray-50 py-2 border-b border-gray-200">
                     <div className="mx-auto max-w-7xl px-4 lg:px-6">
@@ -196,7 +196,7 @@ export default function NewHeader() {
 
             {/* Categories Sidebar */}
             {categoriesSidebarOpen && (
-                <div className="fixed inset-0 z-50">
+                <div className="fixed inset-0 z-[80]">
                     <div
                         className="fixed inset-0 transition-opacity duration-300 pointer-events-auto"
                         style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
@@ -300,7 +300,7 @@ export default function NewHeader() {
 
             {/* Search Overlay */}
             {searchOpen && (
-                <div className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 animate-slideDown" style={{ position: 'fixed', top: 0, zIndex: 99999 }}>
+                <div className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 animate-slideDown z-[95]">
                     <div className="mx-auto max-w-7xl px-4 lg:px-6 py-3">
                         <div className="flex items-center gap-3">
                             <input
