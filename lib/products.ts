@@ -109,14 +109,14 @@ export const products: Product[] = [
     price: 1500,
     description:
       "ZARA marka işlemeli bomber ceket. Geniş kollu, rahat kesim ve şık tasarımı ile günlük kullanım için ideal. Kaliteli kumaş ve detaylı işçilik.",
-    image: "/zarabombermain.jpeg",
-    category: "Üst Giyim",
+    image: "/kategoriler/dis-giyim/ceket/zara-bomber/1.jpeg",
+    category: "Dış Giyim",
     featured: false,
     createdAt: "2024-02-15",
     gallery: [
-      "/zarabombermain.jpeg",
-      "/zarabomber2.jpeg",
-      "/zarabomber3.jpeg"
+      "/kategoriler/dis-giyim/ceket/zara-bomber/1.jpeg",
+      "/kategoriler/dis-giyim/ceket/zara-bomber/2.jpeg",
+      "/kategoriler/dis-giyim/ceket/zara-bomber/3.jpeg"
     ]
   },
   {

@@ -1,11 +1,11 @@
-import NewHeader from "@/components/new-header";
+import Header from "@/components/header";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <NewHeader />
+      <Header />
 
-      <main className="flex-1 py-16 px-4">
+      <main className="flex-1 pt-32 md:pt-24 py-16 px-4">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold text-center mb-8">Hakkımızda</h1>
 

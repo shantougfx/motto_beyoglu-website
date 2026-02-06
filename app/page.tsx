@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import NewHeader from "@/components/new-header";
+import Header from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { FloatingContact } from "@/components/floating-contact";
@@ -13,14 +13,14 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <NewHeader />
+      <Header />
 
       <main className="flex-1">
         {/* Categories Section - Hero yerine, responsive padding */}
-        <section className="pt-32 pb-8 md:pt-16 md:pb-12 bg-background">
+        <section className="pt-32 pb-8 md:pt-32 md:pb-12 bg-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Yeni Sezon Banner */}
-            <div className="mb-6 sm:mb-8">
+            <div className="mb-6 sm:mb-8 md:mt-12">
               <Link href="/urunler?kategori=yeni-sezon" className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 aspect-[16/6] sm:aspect-[20/6] block hover:shadow-lg transition-all duration-300">
                 <div className="absolute inset-0 bg-black/20 z-10" />
                 <img
@@ -176,17 +176,16 @@ export default function HomePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background text-foreground">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 sm:mb-4">
+        <section className="py-8 sm:py-12 bg-background text-foreground">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3">
               Sorularınız mı var?
             </h2>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto mb-6 sm:mb-8 px-4">
+            <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-4 sm:mb-6">
               WhatsApp veya Instagram üzerinden bize ulaşın.
-              Size yardımcı olmaktan mutluluk duyarız.
             </p>
             <Link href="/iletisim">
-              <button className="border border-foreground text-foreground hover:bg-foreground hover:text-background bg-transparent h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base rounded-lg transition-colors">
+              <button className="border border-foreground text-foreground hover:bg-foreground hover:text-background bg-transparent h-10 px-6 text-sm rounded-lg transition-colors">
                 İletişime Geç
               </button>
             </Link>

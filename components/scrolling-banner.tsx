@@ -1,12 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function ScrollingBanner() {
-    const text = "3500 TL ÜZERİ KARGO BEDAVA" + "\u00A0".repeat(150);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth <= 768);
+    }, []);
+
+    const text = "3000 TL ve Üzeri Alışverişlerde Kargo Bedava!" + "\u00A0".repeat(isMobile ? 30 : 60);
 
     return (
         <div className="bg-black text-white py-2 overflow-hidden">
-            <div className="animate-marquee-fast whitespace-nowrap text-sm font-medium tracking-wider">
-                {text.repeat(2)}
+            <div
+                className="whitespace-nowrap font-medium tracking-wider"
+                style={{
+                    display: 'inline-block',
+                    animation: isMobile ? 'marquee-mobile 15s linear infinite' : 'marquee-fast 25s linear infinite',
+                    fontSize: isMobile ? '12px' : '14px'
+                }}
+            >
+                {text.repeat(10)}
             </div>
         </div>
     );
