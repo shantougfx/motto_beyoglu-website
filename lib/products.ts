@@ -11,12 +11,12 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  // Yeni Ürünler - Dükkan (Kategorilere göre düzenlenmiş)
+  // Yeni Ürünler - Dükkan
   {
     id: "yeni-1",
-    name: "Krem Sweatshirt",
+    name: "ÜRÜN 1",
     price: 1200,
-    description: "Rahat kesim, kaliteli pamuklu sweatshirt. Günlük kullanım için ideal.",
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
     image: "/urunler/urun1/1.jpeg",
     category: "Üst Giyim",
     featured: true,
@@ -29,11 +29,11 @@ export const products: Product[] = [
   },
   {
     id: "yeni-2",
-    name: "Siyah Pantolon",
+    name: "ÜRÜN 2",
     price: 1400,
-    description: "Şık kesim, rahat kumaş. Her kombine uyum sağlar.",
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
     image: "/urunler/urun2/1.jpeg",
-    category: "Alt Giyim",
+    category: "Üst Giyim",
     featured: true,
     createdAt: "2024-02-20",
     gallery: [
@@ -44,11 +44,11 @@ export const products: Product[] = [
   },
   {
     id: "yeni-3",
-    name: "Kahverengi Ceket",
+    name: "ÜRÜN 3",
     price: 1600,
-    description: "Klasik kesim, kaliteli kumaş. Şık görünüm için ideal.",
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
     image: "/urunler/urun3/1.jpeg",
-    category: "Dış Giyim",
+    category: "Üst Giyim",
     featured: true,
     createdAt: "2024-02-20",
     gallery: [
@@ -59,9 +59,9 @@ export const products: Product[] = [
   },
   {
     id: "yeni-4",
-    name: "Beyaz Gömlek",
+    name: "ÜRÜN 4",
     price: 1800,
-    description: "Klasik beyaz gömlek, her gardırobun olmazsa olmazı.",
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
     image: "/urunler/urun4/1.jpeg",
     category: "Üst Giyim",
     featured: true,
@@ -74,11 +74,11 @@ export const products: Product[] = [
   },
   {
     id: "yeni-5",
-    name: "Jean Pantolon",
+    name: "ÜRÜN 5",
     price: 2000,
-    description: "Kaliteli denim kumaş, modern kesim jean pantolon.",
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
     image: "/urunler/urun5/1.jpeg",
-    category: "Alt Giyim",
+    category: "Üst Giyim",
     featured: true,
     createdAt: "2024-02-20",
     gallery: [
@@ -89,11 +89,11 @@ export const products: Product[] = [
   },
   {
     id: "yeni-6",
-    name: "Siyah Mont",
+    name: "ÜRÜN 6",
     price: 2200,
-    description: "Kış için ideal, sıcak tutan kaliteli mont.",
+    description: "Kaliteli ürün açıklaması buraya gelecek.",
     image: "/urunler/urun6/1.jpeg",
-    category: "Dış Giyim",
+    category: "Üst Giyim",
     featured: true,
     createdAt: "2024-02-20",
     gallery: [
